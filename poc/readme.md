@@ -9,14 +9,14 @@ We would go to <a href="https://www.sec.gov/edgar/searchedgar/companysearch">SEC
 In the same 10-K report, you may find the balance sheet. We will produce a sankey chart on balance sheet inspired from the last visualization using Plotly and Python, while the data will be hardcoded in the script.
 
 ### Cashflow Statement
-Coming soon...
+In the same 10-K report, you may find the balance sheet. We will produce a sankey chart on balance sheet inspired from a sankey chart like this <a href="https://www.appeconomyinsights.com/p/how-to-analyze-a-cash-flow-statement">post</a> using Plotly and Python, while the data will be hardcoded in the script.
 
 ## Files
 Here are the files used for the proof of concept:
 <ul>
 	<li>income_googl2022.py</li>
-	<li>balancesheet_googl2002.py</li>
-	<li>Coming soon...</li>
+	<li>balancesheet_googl2022.py</li>
+	<li>cashflow_googl2022.py</li>
 </ul>
 
 ## Result
