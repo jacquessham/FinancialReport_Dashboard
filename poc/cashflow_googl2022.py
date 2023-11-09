@@ -16,27 +16,33 @@ fig = go.Figure(data=[go.Sankey(
       label = [
         'Operating Activities', 'Net Income', 
         'Net Cash Provided by Operating Activities', ## 2
-        'Investing Activities', 'Financing Activities', 'Net Increase in Cash'
+        'Investing Activities', 'Financing Activities', 'Net Increase in Cash',
+        'Adjustments','Change in assets and Liabilities, net acquisitions' ## 7
       ],
       color = [
         'green', 'green', 'green',
-        'red', 'red', 'green'
+        'red', 'red', 'green',
+        'green', 'red'
       ]
     ),
     link = dict(
       source = [
-        1, 2, 0, 0, 0
+        1, 2, 0, 0, 0, 6, 
+        2
       ], 
       target = [
-        0, 0, 3, 4, 5
+        0, 0, 3, 4, 5, 2, 
+        7
       ],
       value = [
         59972, 91495-59972, 20298,
-        69757+506, 934
+        69757+506, 934, (15287+641+19362-8081+5519+1030),
+        (-1)*(-2317+584-5046+707+3915-445+367)
       ],
       color = [
         'lightgreen', 'lightgreen', 'pink',
-        'pink', 'lightgreen'
+        'pink', 'lightgreen','lightgreen',
+        'pink'
       ]
   ))])
 

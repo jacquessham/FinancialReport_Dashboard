@@ -27,4 +27,4 @@ Here are the files used for the proof of concept:
 <img src=googl_balance2022.png>
 
 ### Cashflow Statement
-Coming soon...
+<img src=googl_cashflow2022.png>
