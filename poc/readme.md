@@ -16,7 +16,8 @@ Here are the files used for the proof of concept:
 <ul>
 	<li>income_googl2022.py</li>
 	<li>balancesheet_googl2022.py</li>
-	<li>cashflow_googl2022.py</li>
+	<li>cashflow_googl2022_v1.py</li>
+	<li>cashflow_googl2022_v2.py</li>
 </ul>
 
 ## Result
@@ -27,4 +28,11 @@ Here are the files used for the proof of concept:
 <img src=googl_balance2022.png>
 
 ### Cashflow Statement
-<img src=googl_cashflow2022.png>
+<img src=googl_cashflow2022_v1.png>
+
+<br>
+Version 1 rendered by <i>cashflow_googl2022_v1.py</i>
+<br><br>
+
+<img src=googl_cashflow2022_v2.png>
+Version 2 rendered by <i>cashflow_googl2022_v2.py</i>
