@@ -10,11 +10,11 @@ As mentioned, the data is expected to be obtained from 10-Qs and 10-Ks, there is
 ## Beta
 Beta version would allow user to upload data via CSVs. Only display the following selected publicly:
 <ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
+	<li>Google (GOOGL)</li>
+	<li>Apple (AAPL)</li>
+	<li>Meta (FB)</li>
+	<li>GE (GE)</li>
+	<li>Bank of America (BAC)</li>
 </ul>
 
 <br>
