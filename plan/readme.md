@@ -13,7 +13,7 @@ Beta version would allow user to upload data via CSVs. Only display the followin
 	<li>Google (GOOGL)</li>
 	<li>Apple (AAPL)</li>
 	<li>Meta (FB)</li>
-	<li>GE (GE)</li>
+	<li>General Electric (GE)</li>
 	<li>Bank of America (BAC)</li>
 </ul>
 
