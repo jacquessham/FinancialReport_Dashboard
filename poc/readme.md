@@ -44,3 +44,13 @@ Version 1 rendered by <i>cashflow_googl2022_v1.py</i>
 
 <img src=googl_cashflow2022_v2.png>
 Version 2 rendered by <i>cashflow_googl2022_v2.py</i>
+
+## Findings
+Here are the findings that need to be cautioned when implementing the dashboard:
+<ul>
+	<li>Income Statement is the easiest to implement as the flow is only one-way from revenue to expense to net income</li>
+	<li>Balance Statement is relatively easiest as the flow originates from the center to either the left or right, to represent the balance sheet formula. However, Negative numbers will be tricky, although depreication is the major item that has negative numbers and the sign is usually the same for all major items</li>
+	<li>Cash Flow Statement is the hardest as there are a lot of activities could be positive or negative, such as investment activities. If the number switch from positive to negative, the link direction has to switch at the same time. For example, if investment activities switch from positive to negative, the link position will be switched from "securities investment" to "investment activities" to the position of "investment activities" to "securities investment". That means the configuration in the link dictionary in the script requires adjustment in "source" and "target" to switch the positions, as well as the color of the link.</li>
+	<li>Subcategory metrics are not the same across companies, ie, the subcategory of revenue of each companies are not the same</li>
+	<li>Pad size is totally depends value, it could not be customized in Plotly</li>
+</ul>
