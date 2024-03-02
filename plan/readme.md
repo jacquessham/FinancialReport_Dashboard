@@ -22,7 +22,30 @@ The dashboard is planned hosted in Docker in Beta version.
 
 ## Version 1
 Version 1 will allow user to upload either CSV or Excel spreadsheet, and allow developer to set up new company visualizations in the dashboard application.
+<br><br>
+What it should look like:
 
+### Backend
+The dashboard is hosted in Docker, powered by Python scripts utilizing Plotly and Dash. The dashboard ingests data via CSV or Excel spreadsheet, which users are expected to gather the data and supply in the format according to the template provided. 
+
+### Frontend
+The dashboard should be able to allow users to select the publicy traded company through a dropdown list the users wish to analyze. The dashboard should have 3 tabs, each for income statement, balance sheet, and cashflow statement. Each tab has its corresponding dashboard, including a Sankey chart, to show various details, and tables of data if needed.
+
+### Expected Files
+Here are are expected files should be prepared for Version 1.
+<ul>
+	<li>Docker configurations</li>
+	<li>Python scripts to power the dashboard</li>
+	<li>Data Template in CSV and Excel for data ingestion</li>
+</ul>
+
+### Version 1 Future Patches
+Here are the planned patches or maintainance for Version 1:
+<ul>
+	<li>Bug Fixes and Performance Improvement</li>
+	<li>Adding more publicly traded companies</li>
+	<li>Adding more supplemental data to dashboards if needed</li>
+</ul>
 
 ## Version 2 (If Process)
 The idea of next steps are
