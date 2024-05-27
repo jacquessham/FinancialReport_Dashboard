@@ -1,25 +1,24 @@
 from dash import dcc, html
 
 
-def create_tabs(num_tab):
+def create_tabs(tab_labels):
 	tabs = []
-	for i in range(num_tab):
+	for tab_label in tab_labels:
 		tabs.append(
 				dcc.Tab(
-					label=f'label{i+1}', value=f'label{i+1}',
-					children=[
-						html.Div(dcc.Graph(figure=None))
-					]
+					label=f'{tab_label.title().replace('_',' ')}', 
+					value=f'{tab_label}'
 				)
 			)
 	return tabs
 
 
-def dash_layout(app, num_tab):
+def dash_layout(app, tab_labels):
 	app.layout = html.Div([
 			dcc.Tabs(
-				id='dashboard-tabs',value='net_worth',
-				children=create_tabs(num_tab)
-			)
+				id='dashboard-tabs',value=tab_labels[0],
+				children=create_tabs(tab_labels)
+			),
+			html.Div(id='content')
 		])
 	return app
