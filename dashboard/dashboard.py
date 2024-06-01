@@ -2,8 +2,9 @@ import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
 from dashboard_structure import *
-from static_vis import *
 from income_statement import income_statement_figure
+from balancesheet import balancesheet_figure
+from cashflow_statement import cashflow_statement_figure
 
 
 """
@@ -24,12 +25,12 @@ app = dash_layout(app, tab_labels, companies)
 def display_income_statement(tab, company):
     # Income Statement
     if tab == tab_labels[0]:
-        return [html.Div(dcc.Graph(figure=income_statement_figure('Google')))]
+        return [html.Div(dcc.Graph(figure=income_statement_figure(company)))]
     # Balance Sheet
     if tab == tab_labels[1]:
-        return [html.Div(dcc.Graph(figure=static_scatterplot()))]
+        return [html.Div(dcc.Graph(figure=balancesheet_figure(company)))]
     # Cashflow Statement
-    return [html.Div(dcc.Graph(figure=static_heatmap()))]
+    return [html.Div(dcc.Graph(figure=cashflow_statement_figure(company)))]
     
 
 # Initiate dashboard
