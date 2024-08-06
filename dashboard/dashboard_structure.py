@@ -24,18 +24,18 @@ def dash_layout(app, tab_labels, dropdown_choices):
 					html.P('Select a company:'),
 					dcc.Dropdown(id='company-choices',
 						options=dropdown_choices,
-						value=dropdown_choices[0],
+						value=dropdown_choices[0]['value'],
 						style={'width':'70%','text-align':'left'}
 						)
 					], style={'width':'80%', 'display':'inline-block'}),
 				html.Div([
 					html.P('Select the Reporting Period:'),
 					dcc.Dropdown(id='period-choices',
-						options=['Coming soon...','Coming soon 2...'],
-						value='Coming soon...',
-						style={'width':'90%','text-align':'left',
-							'float':'center'
-						})
+                        options=[],
+                        value=None,
+                        style={'width':'90%','text-align':'left',
+                            'float':'center'
+                        })
 					], style={'width':'18%', 'display':'inline-block'}),
 				html.P()
 				]),
@@ -45,7 +45,7 @@ def dash_layout(app, tab_labels, dropdown_choices):
 				children=create_tabs(tab_labels)
 			),
 			# Div to display Graph
-			html.Div(id='content')
+			html.Div(id='content', style={'height':'1000px'})
 		])
 	return app
 

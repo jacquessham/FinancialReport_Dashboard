@@ -1,24 +1,24 @@
-"Items","Year","Value"
-"Revenue","Year1","Value"
-"Cost and Expense","Year1","Value"
-"Income from Operation","Year1","Value"
-"Other Income(expense),net","Year1","Value"
-"EBIT","Year1","Value"
-"Income Tax","Year1","Value"
-"Net Income","Year1","Value"
-"Cost of Revenue","Year1","Value"
-"Research & Development","Year1","Value"
-"Sales & Marketing","Year1","Value"
-"General and Administrative","Year1","Value"
-"Google Services","Year1","Value"
-"Google Cloud","Year1","Value"
-"Other Bets","Year1","Value"
-"Hedging Gains","Year1","Value"
-"Google Advertising","Year1","Value"
-"Other Platforms","Year1","Value"
-"Google Search & Other","Year1","Value"
-"YouTube Ads","Year1","Value"
-"Google Network","Year1","Value"
+"Items","Period","Value"
+"Revenue","FY22",74842
+"Cost and Expense","FY22",207994
+"Income from Operation","FY22",71328
+"Other Income(expense),net","FY22",3514
+"EBIT","FY22",11356
+"Income Tax","FY22",59972
+"Net Income","FY22",126203
+"Cost of Revenue","FY22",39500
+"Research & Development","FY22",26567
+"Sales & Marketing","FY22",15724
+"General and Administrative","FY22",253528
+"Google Services","FY22",26280
+"Google Cloud","FY22",1068
+"Other Bets","FY22",1960
+"Hedging Gains","FY22",224473
+"Google Advertising","FY22",
+"Other Platforms","FY22",29055
+"Google Search & Other","FY22",162450
+"YouTube Ads","FY22",29243
+"Google Network","FY22",32780
 "Revenue","Year2","Value"
 "Cost and Expense","Year2","Value"
 "Income from Operation","Year2","Value"
