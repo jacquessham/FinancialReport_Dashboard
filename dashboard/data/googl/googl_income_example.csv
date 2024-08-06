@@ -1,61 +1,16 @@
 "Items","Period","Value"
-"Revenue","FY22",74842
-"Cost and Expense","FY22",207994
-"Income from Operation","FY22",71328
-"Other Income(expense),net","FY22",3514
-"EBIT","FY22",11356
-"Income Tax","FY22",59972
-"Net Income","FY22",126203
-"Cost of Revenue","FY22",39500
-"Research & Development","FY22",26567
-"Sales & Marketing","FY22",15724
-"General and Administrative","FY22",253528
-"Google Services","FY22",26280
-"Google Cloud","FY22",1068
-"Other Bets","FY22",1960
-"Hedging Gains","FY22",224473
-"Google Advertising","FY22",
-"Other Platforms","FY22",29055
 "Google Search & Other","FY22",162450
-"YouTube Ads","FY22",29243
 "Google Network","FY22",32780
-"Revenue","Year2","Value"
-"Cost and Expense","Year2","Value"
-"Income from Operation","Year2","Value"
-"Other Income(expense),net","Year2","Value"
-"EBIT","Year2","Value"
-"Income Tax","Year2","Value"
-"Net Income","Year2","Value"
-"Cost of Revenue","Year2","Value"
-"Research & Development","Year2","Value"
-"Sales & Marketing","Year2","Value"
-"General and Administrative","Year2","Value"
-"Google Services","Year2","Value"
-"Google Cloud","Year2","Value"
-"Other Bets","Year2","Value"
-"Hedging Gains","Year2","Value"
-"Google Advertising","Year2","Value"
-"Other Platforms","Year2","Value"
-"Google Search & Other","Year2","Value"
-"YouTube Ads","Year2","Value"
-"Google Network","Year2","Value"
-"Revenue","Year3","Value"
-"Cost and Expense","Year3","Value"
-"Income from Operation","Year3","Value"
-"Other Income(expense),net","Year3","Value"
-"EBIT","Year3","Value"
-"Income Tax","Year3","Value"
-"Net Income","Year3","Value"
-"Cost of Revenue","Year3","Value"
-"Research & Development","Year3","Value"
-"Sales & Marketing","Year3","Value"
-"General and Administrative","Year3","Value"
-"Google Services","Year3","Value"
-"Google Cloud","Year3","Value"
-"Other Bets","Year3","Value"
-"Hedging Gains","Year3","Value"
-"Google Advertising","Year3","Value"
-"Other Platforms","Year3","Value"
-"Google Search & Other","Year3","Value"
-"YouTube Ads","Year3","Value"
-"Google Network","Year3","Value"
+"YouTube Ads","FY22",29243
+"Other Platforms","FY22",29055
+"Google Cloud","FY22",26280
+"Hedging Gains","FY22",1960
+"Other Bets","FY22",1068
+"Cost of Revenue","FY22",126203
+"Research & Development","FY22",39500
+"Sales & Marketing","FY22",26567
+"General and Administrative","FY22",15724
+"EBIT","FY22",71328
+"Income Tax","FY22",11356
+"Other Income(expense),net","FY22",-3514
+"Net Income","FY22",59972

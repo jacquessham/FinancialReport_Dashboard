@@ -1,0 +1,22 @@
+{
+	"Google Search & Other": 0,
+	"Google Network":1,
+	"Youtube Ads":2,
+	"Other Platforms":3,
+	"Google Clouds":4,
+	"Hedgding Gains":5,
+	"Other Bets":6,
+	"Google Advertising":7,
+	"Google Services":8,
+	"Revenue":9,
+	"Costs and Expense":10,
+	"Income from Operation":11,
+	"Cost of Revenue": 12,
+	"Research & Development":13,
+	"Sales & Marketing":14,
+	"General & Administrative":15,
+	"EBIT":16,
+	"Income Tax":17,
+	"Other Income (Expense), net": 18,
+	"Net Income":19
+}

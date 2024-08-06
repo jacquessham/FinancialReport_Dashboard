@@ -39,12 +39,15 @@ def display_income_statement(tab, company, period):
     print(f'chart callback during {period}')
     # Income Statement
     if tab == tab_labels[0]:
-        print('I got to here')
+        curr_data = companies_data[company][tab]['data']
+        curr_data = curr_data[curr_data['Period']==period]
         return [html.Div(
                     # P/H1 here if needed
                     # Plotly Chart
                     dcc.Graph(
-                        figure=income_statement_figure(company, period),
+                        figure=income_statement_figure(
+                            company, curr_data
+                            ),
                         style={'height':graph_height}
                     ))]
     # Balance Sheet
