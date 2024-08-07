@@ -7,7 +7,7 @@ def cashflow_statemetn_GOOGL():
 	return example.fig
 
 # Function called by dashboard.py
-def cashflow_statement_figure(company):
+def cashflow_statement_figure(company, period):
 	if company == 'Google':
 		return cashflow_statemetn_GOOGL()
 	return example.fig

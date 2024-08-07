@@ -7,7 +7,7 @@ def balancesheet_GOOGL():
 	return example.fig
 
 # Function called by dashboard.py
-def balancesheet_figure(company):
+def balancesheet_figure(company, period):
 	if company == 'Google':
 		return balancesheet_GOOGL()
 	return example.fig

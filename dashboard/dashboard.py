@@ -28,15 +28,18 @@ graph_height = '600px'
         Output('period-choices', 'value')],
     [Input('dashboard-tabs','value'), Input('company-choices','value')])
 def display_period_dropdown(tab, company):
-    return companies_data[company][tab]['periods'], \
-        companies_data[company][tab]['periods'][0]
+    if tab in companies_data[company]:
+        return companies_data[company][tab]['periods'], \
+            companies_data[company][tab]['periods'][0]
+    # If information is not available
+    return [], None
 
 # Display Income Statement
 @app.callback([Output('content','children')],
     [Input('dashboard-tabs','value'), Input('company-choices','value'),
      Input('period-choices','value')])
 def display_income_statement(tab, company, period):
-    print(f'chart callback during {period}')
+    # print(f'chart callback during {period}')
     # Income Statement
     if tab == tab_labels[0]:
         curr_data = companies_data[company][tab]['data']

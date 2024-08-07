@@ -23,7 +23,7 @@ def load_alldata():
 	companies_data = {}
 	for ticker in tickers:
 		if os.path.exists(f'{data_loc}/{ticker}'):
-			print(f'I saw {ticker}')
+			# print(f'I saw {ticker}')
 			companies_data[ticker] = {}
 			# Load Income Statement data
 			inc_smt_loc = f'{data_loc}/{ticker}/{ticker}_income_example.csv'
