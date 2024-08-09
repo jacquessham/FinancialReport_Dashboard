@@ -6,4 +6,4 @@ Developed the dashboard layout and displaying the chart created in the POC folde
 <br><br>
 <img src=../gallery/income_v001.png>
 <img src=../gallery/balance_v001.png>
-<img src=../gallery/cashflow_v001.png>
+<img src=../gallery/cashflow_v002.png>
