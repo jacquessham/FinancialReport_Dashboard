@@ -64,11 +64,13 @@ def display_income_statement(tab, company, period):
 
                     ))]
     # Cashflow Statement
+    curr_data = companies_data[company][tab]['data']
+    curr_data = curr_data[curr_data['Period']==period]
     return [html.Div(
                 # P/H1 here if needed
                 # Plotly Chart
                 dcc.Graph(
-                    figure=cashflow_statement_figure(company, period),
+                    figure=cashflow_statement_figure(company, curr_data),
                         style={'height':graph_height}
 
                 ))]

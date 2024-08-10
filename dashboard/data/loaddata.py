@@ -31,5 +31,8 @@ def load_alldata():
 
 			# Load Balance Sheet data here
 			# Load Cashflow Statement data here
+			cshf_smt_loc = f'{data_loc}/{ticker}/{ticker}_cashflow_example.csv'
+			companies_data[ticker]['cashflow_statement'] = read_csv(cshf_smt_loc)
+
 
 	return companies, tickers, company2ticker, companies_data
