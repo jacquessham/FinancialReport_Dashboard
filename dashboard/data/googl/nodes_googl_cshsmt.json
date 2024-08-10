@@ -1,0 +1,22 @@
+{
+	"Net Income":0,
+	"Depreciation and Impairment of Property and Equipment":1,
+	"Amortization and Impairment of Intangible Assets":2,
+	"Stock-based Compensation Expense":3,
+	"Deferred Income Taxes":4,
+	"Gain (Loss) on Debt and Equity Securities, net":5,
+	"Other Adjustment":6,
+	"Change in Assets and Liabilities, net of effects of Acquisitions":7,
+	"Non-Cash Charges":8,
+	"Operating Activities":9,
+	"Net Increase in Cash":10,
+	"Investment Activities":11,
+	"Financing Activities":12,
+	"Capital Expenditure":13,
+	"Securities Investment":14,
+	"Acquisitions":15,
+	"Other Investment Activities":16,
+	"Repurchase of Stock and Stock-based Award Activities":17,
+	"Debt-related Activities":18,
+	"Effect of Exchange Rate on Cash":19
+}
