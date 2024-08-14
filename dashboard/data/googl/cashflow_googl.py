@@ -7,8 +7,6 @@ from data.googl.data_cshfsmt_googl import *
 def cashflow_statemetn_GOOGL(data):
     nodes_label, nodes_colors, links = get_data(data)
 
-
-    """
     fig = go.Figure(data=[go.Sankey(
         node = dict(
           pad = 15,
@@ -24,5 +22,5 @@ def cashflow_statemetn_GOOGL(data):
           color = links['color']
       ))])
     return fig
-    """
+
 
