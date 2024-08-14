@@ -1,14 +1,11 @@
 import pandas as pd
 import balancesheet_googl_poc as example
+from data.googl.balance_sheet_googl import *
 
-
-# For Google
-def balancesheet_GOOGL():
-	return example.fig
 
 # Function called by dashboard.py
 def balancesheet_figure(company, period):
 	if company == 'Google':
-		# return balancesheet_GOOGL()
+		# return balance_sheet_GOOGL(data)
 		return example.fig
 	return example.fig

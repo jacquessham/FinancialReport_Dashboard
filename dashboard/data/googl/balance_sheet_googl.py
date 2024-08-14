@@ -1,10 +1,10 @@
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
-from data.googl.data_cshfsmt_googl import *
+from data.googl.data_balsht_googl import *
 
 
-def cashflow_statement_GOOGL(data):
+def balance_sheet_GOOGL(data):
     nodes_label, nodes_colors, links = get_data(data)
 
     fig = go.Figure(data=[go.Sankey(
@@ -22,5 +22,3 @@ def cashflow_statement_GOOGL(data):
           color = links['color']
       ))])
     return fig
-
-
