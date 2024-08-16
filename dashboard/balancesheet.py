@@ -6,6 +6,5 @@ from data.googl.balance_sheet_googl import *
 # Function called by dashboard.py
 def balancesheet_figure(company, data):
 	if company == 'googl':
-		# balance_sheet_GOOGL(data) # For testing, delete later
 		return balance_sheet_GOOGL(data)
-	return example.fig
+	return None

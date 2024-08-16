@@ -21,10 +21,13 @@ def read_csv(path):
 def load_alldata():
 	companies, tickers, company2ticker = get_companies()
 	companies_data = {}
+
+	# Loop over all available companies (folder)
 	for ticker in tickers:
 		if os.path.exists(f'{data_loc}/{ticker}'):
-			# print(f'I saw {ticker}')
+			# Initiate container to store all data
 			companies_data[ticker] = {}
+
 			# Load Income Statement data
 			inc_smt_loc = f'{data_loc}/{ticker}/{ticker}_income_example.csv'
 			companies_data[ticker]['income_statement'] = read_csv(inc_smt_loc)

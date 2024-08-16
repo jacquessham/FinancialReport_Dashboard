@@ -45,6 +45,7 @@ def add_node_to_link(links, source, target, value, color):
 	links['color'].append(color)
 	return links
 
+# If the number is disfavor, change node colour from green to red, or by versa
 def change_node_color(nodes_colors, i_node, value):
 	if value>0:
 		nodes_colors[i_node] = 'green'
@@ -64,16 +65,31 @@ def get_data(df):
 	# Obtain prepared sankey nodes setup
 	nodes = get_nodes()
 	nodes_label = [k for k in nodes.keys()]
-	print(nodes) # Delete later
 
-	# Nodes colour, fix it later
+	# Initiate node colour and change colour based on metric values
 	nodes_colors = ['gray']*len(nodes)
 
 	# Map each KPI with the preassigned index number in nodes_label
-	df_temp = {'Items': [k for k in nodes.keys()], 'Node_num':[nodes[k] for k in nodes.keys()]}
+	df_temp = {'Items': [k for k in nodes.keys()], 
+		'Node_num':[nodes[k] for k in nodes.keys()]}
 	df = pd.merge(df, pd.DataFrame(df_temp), on='Items', how='inner')
-	# print(df) # Delete later
 
+
+	"""
+	Mapping the nodes with links based on metric values, each operating
+	consists of:
+	1 - Extract the value
+	2 - Determine the direction of the link and its colour
+	3 - Declare the link
+	4 - Change node color to reflect whether metric value is favor 
+		to company or not
+
+	The algo consists of Operating Activities, Financing Activities,
+	Investment Activities, as reflected on 10-K or 10-Q, in 3 parts
+
+	Each part will loop over subcategories first, then link it to category,
+	and link the category to total
+	"""
 	# Operating Activities here
 	## Net Income here
 	curr_value = df[df['Node_num']==0]['Value'].values[0]
@@ -131,6 +147,4 @@ def get_data(df):
 	links = add_node_to_link(links, 9, 12, -1*fin, 'lightpink')
 	nodes_colors = change_node_color(nodes_colors, 12, fin)
 	
-
-	print(links) # Delete later
 	return nodes_label, nodes_colors, links
