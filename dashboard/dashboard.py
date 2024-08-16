@@ -55,11 +55,13 @@ def display_income_statement(tab, company, period):
                     ))]
     # Balance Sheet
     if tab == tab_labels[1]:
+        curr_data = companies_data[company][tab]['data']
+        curr_data = curr_data[curr_data['Period']==period]
         return [html.Div(
                     # P/H1 here if needed
                     # Plotly Chart
                     dcc.Graph(
-                        figure=balancesheet_figure(company, period),
+                        figure=balancesheet_figure(company, curr_data),
                         style={'height':graph_height}
 
                     ))]

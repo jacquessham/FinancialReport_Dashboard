@@ -30,6 +30,9 @@ def load_alldata():
 			companies_data[ticker]['income_statement'] = read_csv(inc_smt_loc)
 
 			# Load Balance Sheet data here
+			bal_sht_loc = f'{data_loc}/{ticker}/{ticker}_balancesheet_example.csv'
+			companies_data[ticker]['balance_sheet'] = read_csv(bal_sht_loc)
+
 			# Load Cashflow Statement data here
 			cshf_smt_loc = f'{data_loc}/{ticker}/{ticker}_cashflow_example.csv'
 			companies_data[ticker]['cashflow_statement'] = read_csv(cshf_smt_loc)
