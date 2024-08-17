@@ -1,11 +1,12 @@
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
-from data.googl.data_incsmt_googl import *
+from data.googl.data_cshfsmt_googl import *
 
 
-def income_statement_GOOGL(data):
+def cashflow_statement_GOOGL(data):
     nodes_label, nodes_colors, links = get_data(data)
+
     fig = go.Figure(data=[go.Sankey(
         node = dict(
           pad = 15,
@@ -21,4 +22,5 @@ def income_statement_GOOGL(data):
           color = links['color']
       ))])
     return fig
+
 
