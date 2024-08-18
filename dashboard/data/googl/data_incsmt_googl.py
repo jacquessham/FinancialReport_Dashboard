@@ -36,7 +36,8 @@ def get_data(df):
 	# Hardcode the colors
 	nodes_colors = ['gray']*10 + ['red'] + ['green'] + ['red']*4 
 	# Map each KPI with the preassigned index number in nodes_label
-	df_temp = {'Items': [k for k in nodes.keys()], 'Node_num':[nodes[k] for k in nodes.keys()]}
+	df_temp = {'Items': [k for k in nodes.keys()], 
+		'Node_num':[nodes[k] for k in nodes.keys()]}
 	df = pd.merge(df, pd.DataFrame(df_temp), on='Items', how='inner')
 
 	# Add with itemized revenue
@@ -55,9 +56,11 @@ def get_data(df):
 	links = add_node_to_link(links, 3, 8, curr_value, 'lightgray')
 
 	## Revenue less Other Revenue
-	links = add_node_to_link(links, 8, 9, srv_value, 'lightgray') # Service Revenue
+	### Service Revenue
+	links = add_node_to_link(links, 8, 9, srv_value, 'lightgray')
+	### Google Clouds
 	links = add_node_to_link(links, 4, 9,
-		df[df['Node_num']==4]['Value'].values[0],'lightgray') # Google Clouds
+		df[df['Node_num']==4]['Value'].values[0],'lightgray')
 
 	## Other Revenue - Hedging Gain and Other Bets
 	for i in range(5,7):
@@ -72,14 +75,14 @@ def get_data(df):
 	## Income from Operation
 	inc_op = 0
 	### Other income, net
-	curr_value = -1* df[df['Node_num']==16]['Value'].values[0] 
-	if curr_value >= 0:
-		links = add_node_to_link(links, 11, 16, curr_value, 'pink')
+	curr_value = df[df['Node_num']==16]['Value'].values[0] 
+	if curr_value < 0:
+		links = add_node_to_link(links, 11, 16, -1*curr_value, 'pink')
 		nodes_colors.append('red')
 	else:
-		links = add_node_to_link(links, 16, 11, curr_value, 'lightgreen')
-		nodes_colors.append('green')
-	inc_op += curr_value
+		links = add_node_to_link(links, 16, 11, curr_value, 'lightgray')
+		nodes_colors.append('gray')
+	inc_op += -1*curr_value
 
 	### EBIT
 	ebit = 0
