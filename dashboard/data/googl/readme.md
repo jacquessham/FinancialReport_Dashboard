@@ -1,6 +1,9 @@
 # Data for Google
 Coming soon...
 
+## Sample Dataset and Template
+The sample dataset and dataset template files are available in the [Dataset](dataset) folder. More details are coming soon...
+
 ## Nodes Explained
 Coming soon...
 

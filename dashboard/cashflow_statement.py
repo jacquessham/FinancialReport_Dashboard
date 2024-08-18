@@ -1,5 +1,5 @@
 import pandas as pd
-import cashflow_googl_poc as example
+import data.googl.poc_charts.cashflow_googl_poc as example  # For poc purpose, delete later
 from data.googl.cashflow_googl import *
 
 
