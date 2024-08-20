@@ -31,9 +31,7 @@ def display_period_dropdown(tab, company):
     if tab in companies_data[company]:
         # Sort Periods here
         periods_avail = companies_data[company][tab]['periods']
-        print(periods_avail)
         periods_avail = periods_dropdown(periods_avail)
-        print(periods_avail)
         return periods_avail, periods_avail[0]
     # If information is not available
     return [], None
