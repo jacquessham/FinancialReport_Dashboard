@@ -1,8 +1,45 @@
 # Data for Google
-Coming soon...
+This folder contains all the supporting scripts, sample dataset, and dataset template required to display Google's (GOOGL) financial data on the dashboard. You may find the instructions on how to prepare more data and the technical overviews of the supporting scripts found in this folder.
 
 ## Sample Dataset and Template
-The sample dataset and dataset template files are available in the [Dataset](dataset) folder. More details are coming soon...
+The sample dataset and dataset template files are available in the [Dataset](dataset) folder. 
+<br><br>
+Current, the sample dataset consists of:
+<ul>
+	<li>Income Statement:<ul>
+		<li>23Q3</li>
+		<li>FY22</li>
+		<li>FY21</li>
+		</ul>
+	</li>
+	<li>Balance Sheet:<ul>
+		<li>FY23</li>
+		<li>23Q2</li>
+		<li>FY22</li>
+		</ul>
+	</li>
+	<li>Income Statement:<ul>
+		<li>FY23</li>
+		<li>23Q3</li>
+		<li>FY22</li>
+		</ul>
+	</li>
+</ul>
+
+<br>
+Here are the templates:
+<ul>
+	<li>googl_income_template.csv</li>
+	<li>googl_balancesheet_template.csv</li>
+	<li>googl_cashflow_template.csv</li>
+</ul>
+
+<br><br>
+More details are coming soon...
+
+## Data Prepartion
+Coming soon...
+
 
 ## Nodes Explained
 Coming soon...
@@ -22,6 +59,9 @@ The definitions of nodes used for Google's balance sheet sankey charts can be fo
 <br>
 
 <img src=Images/googl_bal_sankey.png>
+
+<br>
+<b>Note</b>: We noticed that <i>Intangible Assets, net</i> has been stopped reporting in the FY23 10-K and onward. It is okay to leave the value to be 0, or omit the whole entry. In the sample dataset, such entry is omitted for FY23 and onward.
 
 ### Cash Flow Statement
 The definitions of nodes used for Google's cashflow statement sankey charts can be found in <i>nodes_googl_cshfsmt.json</i>, and here is the visualization of the node relation.
