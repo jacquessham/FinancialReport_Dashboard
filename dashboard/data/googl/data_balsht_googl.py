@@ -80,6 +80,10 @@ def get_data(df):
 
 	## Long-term Asset
 	for i in range(5,12):
+		## Node 9 (Intangile Assets, net) stopped reporting in FY23 onward
+		if i == 9 and i not in df['Node_num'].tolist():
+			## Skip this node if the entry is missing in the CSV file
+			continue
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
 		link_temp = get_link_direction(i, 13, curr_value,'asset')
 		## Add links from current node to total asset
