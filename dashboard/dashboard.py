@@ -46,38 +46,42 @@ def display_income_statement(tab, company, period):
     if tab == tab_labels[0]:
         curr_data = companies_data[company][tab]['data']
         curr_data = curr_data[curr_data['Period']==period]
-        return [html.Div(
+        return [html.Div([
                     # P/H1 here if needed
+                    # html.H2(f'{company}\'s Income Statement during {period}'),
                     # Plotly Chart
                     dcc.Graph(
                         figure=income_statement_figure(
                             company, curr_data
                             ),
                         style={'height':graph_height}
-                    ))]
+                    )] # End Div
+                )] # End Outer array
     # Balance Sheet
     if tab == tab_labels[1]:
         curr_data = companies_data[company][tab]['data']
         curr_data = curr_data[curr_data['Period']==period]
-        return [html.Div(
+        return [html.Div([
                     # P/H1 here if needed
+                    # html.H2(f'{company}\'s Income Statement during {period}'),
                     # Plotly Chart
                     dcc.Graph(
                         figure=balancesheet_figure(company, curr_data),
                         style={'height':graph_height}
 
-                    ))]
+                    )])]
     # Cashflow Statement
     curr_data = companies_data[company][tab]['data']
     curr_data = curr_data[curr_data['Period']==period]
-    return [html.Div(
+    return [html.Div([
                 # P/H1 here if needed
+                # html.H2(f'{company}\'s Income Statement during {period}'),
                 # Plotly Chart
                 dcc.Graph(
                     figure=cashflow_statement_figure(company, curr_data),
                         style={'height':graph_height}
 
-                ))]
+                )])]
     
 # Initiate dashboard
 if __name__ == '__main__':
