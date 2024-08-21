@@ -1,5 +1,5 @@
 import pandas as pd
-import balancesheet_googl_poc as example
+import data.googl.poc_charts.balancesheet_googl_poc as example  # For poc purpose, delete later
 from data.googl.balance_sheet_googl import *
 
 
