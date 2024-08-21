@@ -124,9 +124,20 @@ Here are the scripts utilized by <i>dashboard.py</i>:
 	<li><i>data_cshfsmt_googl.py</i>: Assign links metadata for the cashflow statement sankey charts.</li>
 </ul>
 
-<br><br>
-More explantations on nodes aggregations are coming soon...<br>
+<br>
+<i>data_incsmt_googl.py</i>, <i>data_balsht_googl.py</i>, <i>data_cshfsmt_googl.py</i> are the scripts that are responable on converting financial data to a format that is accepted by Plotly sankey chart package, ie, defining nodes and node links. The nodes name, position (index number) are predefined in <i>nodes_googl_incsmt.json</i>, <i>nodes_googl_balsht.json</i>, and <i>nodes_googl_cshfsmt.json</i>. The scripts will first map the data to those nodes and create links that will generate on the sankey chart. The idea is to provide detailed level data to the CSV file, the script will obtain the data and aggregate it for the high level metrics on the sankey chart. Below is the overview of the algorithm of the scripts.
+
+### data_incsmt_googl.py
+This script prepares the sankey chart of Google's income statement. The data preparer will provide data on Node 0-7, 12-16, 18-19. The scirpt will first aggregate revenue among Node 0-7, then expense among Node 12-15, and aggregate income from operation and EBIT at the end.
+
+### data_balsht_googl.py
+This script prepares the sankey chart of Google's balance sheet. The data preparer will provide data on Node 0-11, 17-27. The script will treat assets, liabilities, and equity into three blocks and aggregate the data in each block and link these blocks together at the end.
+
+### data_cshfsmt_googl.py
+This script prepares the sankey chart of Google's cashflow statement. The data preparer will provide data on Node 0-7, 10, 13-19. The script will treat operating activities, financing activities, investment activities into three blocks and aggregate the data in each block and link these blocks together at the end.
 
 
 ## Reference
+GOOGL's filing on SEC Edgar page - <a href="https://www.sec.gov/edgar/browse/?CIK=1652044&owner=exclude">link</a>
+<br><br>
 2022 10-K - <a href="https://www.sec.gov/ix?doc=/Archives/edgar/data/0001652044/000165204423000016/goog-20221231.htm">link</a>
