@@ -4,5 +4,8 @@ This is the Data folder where the dashboard administrator will be preparing the 
 ## Google (GOOGL)
 The Google folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Google](googl) folder.
 
+### Apple (AAPL)
+The Apple folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Apple](aapl) folder.
+
 ## Template
 If you would like to add more company options, you may create more plug-ins. Here are the instructions and guidelines in the [Template](template) folder. Details are coming soon...
