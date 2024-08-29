@@ -8,10 +8,13 @@
 	"Net Sales":6,
 	"Operating Expenses":7,
 	"Operating Income":8,
-	"EBIT":9,
-	"Other Income (Expenses), net":10,
+	"Cost of Sales":9,
+	"EBIT":10,
 	"Income Taxes":11,
 	"Net Income":12,
 	"Research & Development":13,
-	"Selling, General and Administrative":14
+	"Selling, General and Administrative":14,
+	"Other Income (Expenses), net":15,
+	"Product Cost of Sales":16,
+	"Service Cost of Sales":17
 }
