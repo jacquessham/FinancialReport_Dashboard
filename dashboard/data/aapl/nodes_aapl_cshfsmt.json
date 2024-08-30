@@ -1,3 +1,20 @@
 {
-	
+	"Net Income":0,
+	"Depreciation and Amortization":1,
+	"Share-based Compensation Expense":2,
+	"Other Adjustments on Operating Activities":3,
+	"Change in Operating Assets and Liabilities":4,
+	"Adjustments by Operating Activities":5,
+	"Operating Activities":6,
+	"Investment Activities":7,
+	"Financing Activities":8,
+	"Marketable Securities Activities, net":9,
+	"Acquisition of Property, Plant and Equipment":10,
+	"Other Investing Activities":11,
+	"Payments for Taxes related to net share Settlement of Equity Awards":12,
+	"Payments for Dividends":13,
+	"Repurchase of Common Stock":14,
+	"Debt Activities":15,
+	"Other Financing Activities":16,
+	"Net Increase in Cash":17
 }
