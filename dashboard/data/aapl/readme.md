@@ -31,6 +31,9 @@ Coming soon...
 ### Balance Sheet
 Coming soon...
 
+<br><br>
+<img src=Images/aapl_balsht_sankey.png>
+
 ### Cash Flow Statement
 Coming soon...
 

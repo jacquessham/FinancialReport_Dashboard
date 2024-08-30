@@ -95,7 +95,7 @@ def get_data(df):
 	lib = 0
 	## Current Liabilities
 	curr_lib = 0
-	for i in range(16,18):
+	for i in range(16,21):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
 		link_temp = get_link_direction(14, i, curr_value,'liability')
 		## Add links from current liability to current node
@@ -109,7 +109,7 @@ def get_data(df):
 
 	## Long-term Liabilities
 	noncurr_lib = 0
-	for i in range(18,23):
+	for i in range(21,23):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
 		link_temp = get_link_direction(15, i, curr_value,'liability')
 		# Add link from total liability to current node
