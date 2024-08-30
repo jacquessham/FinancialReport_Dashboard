@@ -130,7 +130,9 @@ def get_data(df):
 		invest += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Investing Activities
-	links = add_node_to_link(links, 9, 11, -1*invest, 'lightpink')
+	link_temp = get_link_direction(9, 11, invest, False, True)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
 	nodes_colors = change_node_color(nodes_colors, 11, invest)
 
 
@@ -144,7 +146,9 @@ def get_data(df):
 		fin += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Financing Activities
-	links = add_node_to_link(links, 9, 12, -1*fin, 'lightpink')
+	link_temp = get_link_direction(9, 12, fin, False, True)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
 	nodes_colors = change_node_color(nodes_colors, 12, fin)
 	
 	return nodes_label, nodes_colors, links
