@@ -1,7 +1,7 @@
 "Items","Period","Value"
 "Cash and cash equivalents","FY23",29965
 "Marketable Securities","FY23",31590
-"Accounts Receivab net","FY23",19508
+"Accounts Receivable, net","FY23",29508
 "Vendor non-trade Receivable","FY23",31477
 "Inventories","FY23",6331
 "Other Current Assets","FY23",14695
@@ -16,4 +16,4 @@
 "Term Debt, non-current","FY23",95281
 "Other non-current Liabilities","FY23",49848
 "Common Stocks","FY23",73812
-"Retained Earning","FY23",11666
+"Retained Earning","FY23",-11666
