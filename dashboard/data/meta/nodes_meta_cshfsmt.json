@@ -1,4 +1,25 @@
 {
 	"Net Income":0,
-	"Depreciation and Amortization":1
+	"Depreciation and Amortization":1,
+	"Share-based Compensation":2,
+	"Deferred Income Taxes":3,
+	"Impairment Charges for Facilities Consolidation, net":4,
+	"Data Center Assets Abandonment":5,
+	"Other Adjustment in Operating Activities":6,
+	"Changes in Assets and Liabilities":7,
+	"Adjustments in Operating Activities":8,
+	"Operating Activities":9,
+	"Investing Activities":10,
+	"Financing Activities":11,
+	"Net Increase (Decrease) in Cash":12,
+	"Purchases of Property and Equipment and Activities":13,
+	"Marketable Debt Securities Activities":14,
+	"Acquisitions of Businesses and Intangible Assets":15,
+	"Other Investing Activities":16,
+	"Taxes Paid related to net share Settlement of Equity Award":17,
+	"Repurchases of Common Stock":18,
+	"Debt Issurance Activities":19,
+	"Finance Leases Activities":20,
+	"Other Financing Activities":21,
+	"Effect of Exchange Rate":22
 }
