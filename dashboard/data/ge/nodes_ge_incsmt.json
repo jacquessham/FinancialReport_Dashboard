@@ -1,3 +1,21 @@
 {
-	
+	"Sales of Equipment":0,
+	"Sales of Service":1,
+	"Insurance Revenue":2,
+	"Cost of Equipment Sold":3,
+	"Cost of Service Sold":4,
+	"Selling, General and Adminstrative Expenses":5,
+	"Separation Costs":6,
+	"Research and Development":7,
+	"Interest and other Financial Charges":8,
+	"Debt Extinguishment Costs":9,
+	"Insurance Losses, Annuity Benefits and other Costs":10,
+	"Non-operating Benefit Cost (Income)":11,
+	"Other Income (Loss)":12,
+	"Revenue":13,
+	"Total Costs and Expenses":14,
+	"EBIT":15,
+	"Income Tax":16,
+	"Earning from Discontinued Operation, net of Taxes":17,
+	"Net Income":18
 }
