@@ -6,7 +6,7 @@ import pandas as pd
 # Read the Node structure setup json file
 def get_nodes():
 	curr_dir = Path(__file__).parent
-	f = open(f'{curr_dir}/nodes_googl_incsmt.json')
+	f = open(f'{curr_dir}/nodes_ge_incsmt.json')
 	return json.load(f)
 
 # Add sankey links with data, color, direction
@@ -30,10 +30,11 @@ def get_data(df):
 	nodes = get_nodes()
 	nodes_label = [k for k in nodes.keys()]
 
-	"""
 	# Node 16-19 taken care later since depends on +/- numbers
 	# Hardcode the colors
 	nodes_colors = ['gray']*10 + ['red'] + ['green'] + ['red']*4 
+
+	"""
 	# Map each KPI with the preassigned index number in nodes_label
 	df_temp = {'Items': [k for k in nodes.keys()], 
 		'Node_num':[nodes[k] for k in nodes.keys()]}

@@ -1,7 +1,7 @@
 import pandas as pd
 import plotly
 import plotly.graph_objs as go
-from data.googl.data_incsmt_googl import *
+from data.ge.data_incsmt_ge import *
 
 
 def income_statement_GE(data):

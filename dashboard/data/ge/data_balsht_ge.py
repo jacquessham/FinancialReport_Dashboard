@@ -58,7 +58,7 @@ def get_data(df):
 	nodes_label = [k for k in nodes.keys()]
 
 	# Nodes colour, green=asset, red=liability, blue=equity, black=Total Asset
-	nodes_colors = ['green']*13+['black','red','blue']+['red']*10+['blue']*2
+	nodes_colors = ['green']*16+['black','red','blue']+['red']*12+['blue']*4
 
 	# Map each KPI with the preassigned index number in nodes_label
 	df_temp = {'Items': [k for k in nodes.keys()], 
@@ -67,69 +67,64 @@ def get_data(df):
 
 	# Asset here
 	## Current Assets
-	"""
 	curr_asset = 0
-	for i in range(0,5):
+	for i in range(0,7):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(i, 12, curr_value,'asset')
+		link_temp = get_link_direction(i, 15, curr_value,'asset')
 		# Add links from current node to current asset
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 			link_temp[2],link_temp[3])
 		curr_asset += curr_value
 	# Add link from current asset to total asset
-	links = add_node_to_link(links, 12, 13, curr_asset, 'lightgreen')
+	links = add_node_to_link(links, 15, 16, curr_asset, 'lightgreen')
+
 
 	## Long-term Asset
-	for i in range(5,12):
-		## Node 9 (Intangile Assets, net) stopped reporting in FY23 onward
-		if i == 9 and i not in df['Node_num'].tolist():
-			## Skip this node if the entry is missing in the CSV file
-			continue
+	for i in range(7,15):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(i, 13, curr_value,'asset')
+		link_temp = get_link_direction(i, 16, curr_value,'asset')
 		## Add links from current node to total asset
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 			link_temp[2],link_temp[3])
+
 
 	# Liabilities here
 	lib = 0
 	## Current Liabilities
 	curr_lib = 0
-	for i in range(17,22):
+	for i in range(20,25):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(16, i, curr_value,'liability')
+		link_temp = get_link_direction(19, i, curr_value,'liability')
 		## Add links from current liability to current node
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		curr_lib += curr_value
 	lib += curr_lib # Add curr_lib to total lib
 	# Add link from total liability to current liability
-	links = add_node_to_link(links, 14, 16, curr_lib, 'lightpink')
+	links = add_node_to_link(links, 17, 19, curr_lib, 'lightpink')
 
 	## Long-term Liabilities
-	for i in range(22,26):
+	for i in range(25,31):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(14, i, curr_value,'liability')
+		link_temp = get_link_direction(17, i, curr_value,'liability')
 		# Add link from total liability to current node
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		lib += curr_value # Add curr_value directly to total lib
 	# Add link from total asset to totla liability
-	links = add_node_to_link(links, 13, 14, lib, 'lightpink')
+	links = add_node_to_link(links, 16, 17, lib, 'lightpink')
 
 	# Equity here
 	equ = 0
-	for i in range(26,28):
+	for i in range(31,35):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(15, i, curr_value,'equity')
+		link_temp = get_link_direction(18, i, curr_value,'equity')
 		# Add equity from total equity to current node
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		equ += curr_value
 	# Add link from total asset to total equity
-	links = add_node_to_link(links, 13, 15, equ, 'lightblue')
-	"""
-
+	links = add_node_to_link(links, 16, 18, equ, 'lightblue')
 
 	return nodes_label, nodes_colors, links
 
