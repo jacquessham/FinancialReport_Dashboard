@@ -91,37 +91,54 @@ def get_data(df):
 	and link the category to total
 	"""
 
-	"""
+	
 	# Operating Activities here
+	cont_op = 0
 	## Net Income here
 	curr_value = df[df['Node_num']==0]['Value'].values[0]
-	link_temp = get_link_direction(0, 9, curr_value)
+	link_temp = get_link_direction(0, 14, curr_value)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 	nodes_colors = change_node_color(nodes_colors, 0, curr_value)
+	cont_op += curr_value
 	
 	## Net Increase in Cash
-	curr_value = df[df['Node_num']==10]['Value'].values[0]
-	link_temp = get_link_direction(9, 10, curr_value)
+	curr_value = df[df['Node_num']==33]['Value'].values[0]
+	link_temp = get_link_direction(15, 33, curr_value)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 10, curr_value)
+	nodes_colors = change_node_color(nodes_colors, 33, curr_value)
 
-	## Non-Cash Charges here
-	op_non_cash = 0
-	for i in range(1,8):
+	## Adjustmetns to cash from operating activities here
+	adjust_op = 0
+	for i in range(1,12):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(i, 8, curr_value)
+		link_temp = get_link_direction(i, 13, curr_value)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-		op_non_cash += curr_value
+		adjust_op += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
+	link_temp = get_link_direction(13, 14, adjust_op)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 13, adjust_op)
+	cont_op += adjust_op
 
-	## Link Non-Cash Charge to Operating Activities
-	links = add_node_to_link(links, 8, 9, op_non_cash, 'lightgreen')
-	nodes_colors = change_node_color(nodes_colors, 8, op_non_cash)
-	nodes_colors[9] = 'green' # Operating Activities Node itself
+	## Link Continue Activities to Operating Activities
+	link_temp = get_link_direction(14, 15, cont_op)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 14, cont_op)
 
+	## Link Discontinue Activities to Operating Activities
+	curr_value = df[df['Node_num']==12]['Value'].values[0]
+	link_temp = get_link_direction(12, 15, curr_value)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 12, curr_value)
+	nodes_colors[15] = 'green' # Operating Activities Node itself
+
+	"""
 	# Investing Activities here
 	invest = 0
 	for i in range(13,17):
