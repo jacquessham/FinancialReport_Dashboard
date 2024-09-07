@@ -8,12 +8,14 @@ The first step is to replicate the sankey chart found in this <a href="https://w
 The plan is to develop a dashboard displays the financials of selected publicly traded companies, the details can be found in the [The Plan](plan) folder.
 
 ## Dashboard
-The Dashboard is under development and only have Google's (GOOGL) selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. More details will be available soon.
+The Dashboard is under development and allow users to select Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), and General Electrics on selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. More details will be available soon.
 
 <br>
-<img src=gallery/income_v002.png>
+<img src=gallery/income_v004.png>
+<img src=gallery/balance_v004.png>
+<img src=gallery/cashflow_v004.png>
 
-Screenshot of latest development.
+Screenshots of latest development.
 
 ## Reference
 <a href="https://www.reddit.com/r/dataisbeautiful/comments/10ur1ya/oc_how_google_makes_money_its_2022_income/">Google Financial Report in Sankey Chart</a>
