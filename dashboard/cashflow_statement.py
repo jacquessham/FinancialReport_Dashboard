@@ -17,6 +17,6 @@ def cashflow_statement_figure(company, data):
 		return cashflow_statement_META(data)
 	elif company == 'bac':
 		return cashflow_statement_BAC(data)
-  elif company == 'ge':
+	elif company == 'ge':
 		return cashflow_statement_GE(data)
 	return None
