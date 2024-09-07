@@ -19,7 +19,7 @@
 	"Financing Activities":17,
 	"Cash from Investing Activities - Continued Operations":18,
 	"Cash from Financing Activities - Continued Operations":19,
-	"Cash from Investing Activities - Disontinued Operations":20,
+	"Cash from Investing Activities - Discontinued Operations":20,
 	"Capital Expenditure, net":21,
 	"Proceeds from Sale of Discontinued Operations":22,
 	"Principal Businesses Purchased, net":23,
@@ -30,8 +30,7 @@
 	"Redemption of Preferred Stocks":28,
 	"Common Stock buyback":29,
 	"Other Financing Activities":30,
-	"Cash from Financing Activities - Disontinued Operations":31,
+	"Cash from Financing Activities - Discontinued Operations":31,
 	"Effect of Currency Exchange":32,
-	"Increase in Cash":33,
-	"Cash of Discontinued Operations":34
+	"Increase in Cash":33
 }
