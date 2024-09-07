@@ -5,6 +5,7 @@ from data.googl.income_googl import *
 from data.aapl.income_aapl import *
 from data.meta.income_meta import *
 from data.bac.income_bac import *
+from data.ge.income_ge import *
 
 
 # Function called by dashboard.py
@@ -16,6 +17,8 @@ def income_statement_figure(company, data):
 		return income_statement_AAPL(data)
 	elif company == 'meta':
 		return income_statement_META(data)
-  	elif company == 'bac':
+  elif company == 'bac':
 		return income_statement_BAC(data)
+  elif company == 'ge':
+		return income_statement_GE(data)
 	return None

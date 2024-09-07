@@ -4,6 +4,7 @@ from data.googl.balance_sheet_googl import *
 from data.aapl.balance_sheet_aapl import *
 from data.meta.balance_sheet_meta import *
 from data.bac.balance_sheet_bac import *
+from data.ge.balance_sheet_ge import *
 
 
 # Function called by dashboard.py
@@ -16,4 +17,6 @@ def balancesheet_figure(company, data):
 		return balance_sheet_META(data)
   elif company == 'bac':
 		return balance_sheet_BAC(data)
+  	elif company == 'ge':
+		return balance_sheet_GE(data)
 	return None
