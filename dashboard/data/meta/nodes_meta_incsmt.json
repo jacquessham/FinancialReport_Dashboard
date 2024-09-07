@@ -1,0 +1,12 @@
+{
+	"Revenue":0,
+	"Costs and Expenses":1,
+	"EBIT":2,
+	"Cost of Revenue":3,
+	"Research and Development":4,
+	"Marketing and Sales":5,
+	"General Administrative":6,
+	"Interest and other income (expense), net":7,
+	"Income Taxes":8,
+	"Net Income":9
+}

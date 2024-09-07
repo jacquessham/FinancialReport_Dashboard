@@ -6,7 +6,7 @@ import pandas as pd
 # Read the Node structure setup json file
 def get_nodes():
 	curr_dir = Path(__file__).parent
-	f = open(f'{curr_dir}/nodes_googl_cshfsmt.json')
+	f = open(f'{curr_dir}/nodes_meta_cshfsmt.json')
 	return json.load(f)
 
 # Link Direction
@@ -74,7 +74,6 @@ def get_data(df):
 		'Node_num':[nodes[k] for k in nodes.keys()]}
 	df = pd.merge(df, pd.DataFrame(df_temp), on='Items', how='inner')
 
-
 	"""
 	Mapping the nodes with links based on metric values, each operating
 	consists of:
@@ -99,15 +98,15 @@ def get_data(df):
 	nodes_colors = change_node_color(nodes_colors, 0, curr_value)
 	
 	## Net Increase in Cash
-	curr_value = df[df['Node_num']==10]['Value'].values[0]
-	link_temp = get_link_direction(9, 10, curr_value)
+	curr_value = df[df['Node_num']==12]['Value'].values[0]
+	link_temp = get_link_direction(9, 12, curr_value)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 10, curr_value)
+	nodes_colors = change_node_color(nodes_colors, 12, curr_value)
 
 	## Non-Cash Charges here
 	op_non_cash = 0
-	for i in range(1,8):
+	for i in range(1,7):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
 		link_temp = get_link_direction(i, 8, curr_value)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
@@ -115,40 +114,55 @@ def get_data(df):
 		op_non_cash += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 
+	### Change in Asset and Liabilities
+	curr_value = df[df['Node_num']==7]['Value'].values[0]
+	link_temp = get_link_direction(7, 9, curr_value)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 7, curr_value)
+
 	## Link Non-Cash Charge to Operating Activities
 	links = add_node_to_link(links, 8, 9, op_non_cash, 'lightgreen')
 	nodes_colors = change_node_color(nodes_colors, 8, op_non_cash)
 	nodes_colors[9] = 'green' # Operating Activities Node itself
 
+	
 	# Investing Activities here
 	invest = 0
 	for i in range(13,17):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(11, i, curr_value, False, True)
+		link_temp = get_link_direction(10, i, curr_value, False, True)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		invest += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Investing Activities
-	link_temp = get_link_direction(9, 11, invest, False, True)
+	link_temp = get_link_direction(9, 10, invest, False, True)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 11, invest)
+	nodes_colors = change_node_color(nodes_colors, 10, invest)
 
 
 	# Financing Activities here
 	fin = 0
-	for i in range(17,20):
+	for i in range(17,22):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(12, i, curr_value, False, True)
+		link_temp = get_link_direction(11, i, curr_value, False, True)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		fin += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Financing Activities
-	link_temp = get_link_direction(9, 12, fin, False, True)
+	link_temp = get_link_direction(9, 11, fin, False, True)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 12, fin)
+	nodes_colors = change_node_color(nodes_colors, 11, fin)
+
+	## Net Effect of Exchange Rate
+	curr_value = df[df['Node_num']==22]['Value'].values[0]
+	link_temp = get_link_direction(22, 9, curr_value)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 22, curr_value)
 	
 	return nodes_label, nodes_colors, links
