@@ -8,14 +8,20 @@ Current, the sample dataset consists of:
 <ul>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
+		<li>FY21</li>
 		</ul>
 	</li>
 	<li>Balance Sheet:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
+		<li>FY21</li>
 		</ul>
 	</li>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
+		<li>FY21</li>
 		</ul>
 	</li>
 </ul>
@@ -35,9 +41,20 @@ For the current version, data is expected to be added to the sample data CSV fil
 Coming soon...
 
 ### Balance Sheet Dataset
+<img src=Images/aapl_balsht_cal_explain.png>
+
+
+<br><br>
 Coming soon...
 
+
 ### Cash Flow Statement Dataset
+<img src=Images/aapl_cshfsmt_cal1_explain.png>
+<img src=Images/aapl_cshfsmt_cal2_explain.png>
+<img src=Images/aapl_cshfsmt_cal3_explain.png>
+
+
+<br><br>
 Coming soon...
 
 ## Nodes Explained
@@ -57,6 +74,7 @@ Coming soon...
 
 <br><br>
 <img src=Images/aapl_balsht_sankey.png>
+
 
 ### Cash Flow Statement
 Coming soon...
