@@ -8,14 +8,17 @@ Current, the sample dataset consists of:
 <ul>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Balance Sheet:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 </ul>
