@@ -117,7 +117,7 @@ def get_data(df):
 
 	## Link Non-Cash Charge to Operating Activities
 	links = add_node_to_link(links, 5, 6, op_non_cash, 'lightgreen')
-	nodes_colors = change_node_color(nodes_colors, 6, op_non_cash)
+	nodes_colors = change_node_color(nodes_colors, 5, op_non_cash)
 	nodes_colors[6] = 'green' # Operating Activities Node itself
 
 
