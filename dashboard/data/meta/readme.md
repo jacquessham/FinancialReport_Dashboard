@@ -32,13 +32,31 @@ Here are the templates:
 For the current version, data is expected to be added to the sample data CSV files (Files with name end with <b>\_example.csv</b>). Data preparers are expected to copy the format from the template files (Files with name end with <b>\_template.csv</b>), and copy the numbers from 10-K or 10-Q without changing the signs. All entries across all periods (No matter annual data or quarterly data) are saved under one file of its corresponding statement. Please do not separate the files into different period, the backend expects the period differentiate by the value under the <i>Period</i> column. For example, you may copy the format <i>meta_income_template</i>, less the header, from the file. Then, replace period value with the period you are providing. And lastly, enter the value from the source. Each row represents an entry of one of the statements from 10-K or 10-Q, however, there are some entries are combined. Please refer to the individual statement dataset section for detail. If you want to add the entries from another period, please copy the format, less the header, and append to the same dataset file.
 
 ### Income Statement Dataset
-Coming soon...
+You may find all the entries from the consolidated statement of income section of the report. No field is combined in this visualization setup.
 
 ### Balance Sheet Dataset
-Coming soon...
+You may find all the entries from the consolidated balance sheet section of the report, except the Common Stock column. All assets and liabilities values may be retreived from the balance and directly copy the value to the dataset.
+<br>
+
+<ul>
+	<li>Common Stocks (Node 22): Sum of Common stocks and Additonal paid-in capital</li>
+</ul>
+
+<img src=Images/meta_balsht_cal1_explain.png>
 
 ### Cash Flow Statement Dataset
-Coming soon...
+You may find all values required by the cash flow statement in the consolidated statements of cash flow section. Please copy the data without changing the signs for all values.
+<br><br>
+
+There are 3 entries required summing their dependent columns or name change:
+<ul>
+	<li>Changes in Assets and Liabilities (Node 7): Sum of items under the Operating activities subsection of Changes in assets and liabilities </li>
+	<li>Purchases of Property and Equipment and Activities (Node 13): Sum of Purchases of property and equipment, and Proceeds relating to property and equipment</li>
+	<li>Marketable Debt Securities Activities (Node 14): Sum of Purchases of marketable debt securities and Sales and maturities of marketable debt securities</li>
+</ul>
+
+<img src=Images/meta_cshfsmt_cal1_explain.png>
+<img src=Images/meta_cshfsmt_cal2_explain.png>
 
 ## Nodes Explained
 In the Plotly sankey chart package, nodes represents a categorical entry while the links represents the value between the nodes. The nodes in this setting are generally represents the positions of the charts from left to right. It is designed in way to make scripts creation and modification clear, and especially to emphasize the hierarchy among nodes and have user's input data on either furthest left or furthest right of the chart.
@@ -47,13 +65,23 @@ In the Plotly sankey chart package, nodes represents a categorical entry while t
 The nodes used in the sankey charts are defined in the json files - <i>nodes_meta_incsmt.json</i>, <i>nodes_meta_balsht.json</i>, and <i>nodes_meta_cshfsmt.json</i>, respective to income statement, balance sheet, cashflow statement. The definitions are responsible to map the datasets to the node definitions. Data prepare will not need to interact these files. In the coming subsections will provide the visualization of the nodes definitions of the corresponding sankey chart structures.
 
 ### Income Statment
-Coming soon...
+The definitions of nodes used for Meta's income statement sankey charts can be found in nodes_meta_incsmt.json, and here is the visualization of the node relation.
+<br>
+
+<img src=Images/meta_incsmt_sankey.png>
 
 ### Balance Sheet
-Coming soon...
+The definitions of nodes used for Meta's balance sheet sankey charts can be found in nodes_meta_balsht.json, and here is the visualization of the node relation.
+<br>
+
+<img src=Images/meta_bal_sankey.png>
 
 ### Cashflow Statement
-Coming soon...
+The definitions of nodes used for Meta's cashflow statement sankey charts can be found in nodes_meta_cshfsmt.json, and here is the visualization of the node relation.
+<br>
+
+<img src=Images/meta_cshfsmt_sankey.png>
+
 
 ## Scripts
 Here are the scripts utilized by <i>dashboard.py</i>:
