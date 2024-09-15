@@ -14,6 +14,6 @@ def balancesheet_figure(company, data):
 		return balance_sheet_AAPL(data)
 	elif company == 'meta':
 		return balance_sheet_META(data)
-  elif company == 'bac':
+	elif company == 'bac':
 		return balance_sheet_BAC(data)
 	return None

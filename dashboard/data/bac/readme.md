@@ -8,14 +8,17 @@ Current, the sample dataset consists of:
 <ul>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Balance Sheet:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 </ul>
@@ -82,18 +85,20 @@ The nodes used in the sankey charts are defined in the json files - <i>nodes_bac
 The definitions of nodes used for Bank of America's income statement sankey charts can be found in <i>nodes_bac_incsmt.json</i>, and here is the visualization of the node relation.
 <br>
 
-Coming soon...
+<img src=Images/bac_incsmt_sankey.png>
 
 ### Balance Sheet
 The definitions of nodes used for Bank of America's balance sheet sankey charts can be found in <i>nodes_bac_balsht.json</i>, and here is the visualization of the node relation.
 <br>
-Coming soon...
+
+<img src=Images/bac_bal_sankey.png>
 
 
 ### Cash Flow Statement
 The definitions of nodes used for Bank of America's cashflow statement sankey charts can be found in <i>nodes_bac_cshfsmt.json</i>, and here is the visualization of the node relation.
 <br>
-Coming soon...
+
+<img src=Images/bac_cshfsmt_sankey.png>
 
 ## Scripts
 Here are the scripts utilized by <i>dashboard.py</i>:
@@ -110,7 +115,7 @@ Here are the scripts utilized by <i>dashboard.py</i>:
 <i>data_incsmt_bac.py</i>, <i>data_balsht_bac.py</i>, <i>data_cshfsmt_bac.py</i> are the scripts that are responable on converting financial data to a format that is accepted by Plotly sankey chart package, ie, defining nodes and node links. The nodes name, position (index number) are predefined in <i>nodes_bac_incsmt.json</i>, <i>nodes_bac_balsht.json</i>, and <i>nodes_bac_cshfsmt.json</i>. The scripts will first map the data to those nodes and create links that will generate on the sankey chart. The idea is to provide detailed level data to the CSV file, the script will obtain the data and aggregate it for the high level metrics on the sankey chart. Below is the overview of the algorithm of the scripts.
 
 ### data_incsmt_bac.py
-This script prepares the sankey chart of bace's income statement. The data preparer will provide data on Node 0-11, 16-26. More details are coming soon...
+This script prepares the sankey chart of bace's income statement. The data preparer will provide data on Node 0-11, 16-26. The script first calculate the net change in interest income (aggregated interest income minus aggregated interest expense), then aggregate non-interest income, itemized expenses, and finally EBIT and net income.
 
 ### data_balsht_bac.py
 This script prepares the sankey chart of bace's balance sheet. The data preparer will provide data on Node 0-12, 20-32. The script will treat assets, liabilities, and equity into three blocks and aggregate the data in each block and link these blocks together at the end.

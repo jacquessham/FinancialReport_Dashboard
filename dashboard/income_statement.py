@@ -16,6 +16,6 @@ def income_statement_figure(company, data):
 		return income_statement_AAPL(data)
 	elif company == 'meta':
 		return income_statement_META(data)
-  	elif company == 'bac':
+	elif company == 'bac':
 		return income_statement_BAC(data)
 	return None
