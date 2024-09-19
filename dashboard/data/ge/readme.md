@@ -8,14 +8,17 @@ Current, the sample dataset consists of:
 <ul>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Balance Sheet:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 	<li>Income Statement:<ul>
 		<li>FY23</li>
+		<li>FY22</li>
 		</ul>
 	</li>
 </ul>
@@ -32,10 +35,13 @@ Here are the templates:
 For the current version, data is expected to be added to the sample data CSV files (Files with name end with <b>\_example.csv</b>). Data preparers are expected to copy the format from the template files (Files with name end with <b>\_template.csv</b>), and copy the numbers from 10-K or 10-Q without changing the signs. All entries across all periods (No matter annual data or quarterly data) are saved under one file of its corresponding statement. Please do not separate the files into different period, the backend expects the period differentiate by the value under the <i>Period</i> column. For example, you may copy the format <i>ge_income_template</i>, less the header, from the file. Then, replace period value with the period you are providing. And lastly, enter the value from the source. Each row represents an entry of one of the statements from 10-K or 10-Q, however, there are some entries are combined. Please refer to the individual statement dataset section for detail. If you want to add the entries from another period, please copy the format, less the header, and append to the same dataset file.
 
 ### Income Statement Dataset
-Coming soon...
+You may find all the cost expenses, EBIT, and net income values from the consolidated statement of income section of the report. Please copy and paste the number without changing the sign from the report, the script will take care of the signs. If the number is not available on the consolidated statement, put 0 to that item, and <b>DO NOT OMIT THE ITEM</b>.
 
 ### Balance Sheet Dataset
-Coming soon...
+You may find all the entries in the consoldiated balance sheet. Please copy and paste the number without chaning the sign from the report. The only entries required summation is <i>Retained Earning</i>, please sum <i>Retained Earning</i>,<i>Less common stock held in treasury</i>, and <i>Accumulated other comprehensive income (loss) - net attributable to GE</i>.
+
+<br><br>
+<img src=Images/ge_balsht_cal_explain.png>
 
 ### Cash Flow Statement Dataset
 Coming soon...
@@ -48,19 +54,19 @@ The nodes used in the sankey charts are defined in the json files - <i>nodes_ge_
 
 ### Income Statment
 The definitions of nodes used for GEe's income statement sankey charts can be found in <i>nodes_ge_incsmt.json</i>, and here is the visualization of the node relation.
-<br>
-Coming soon...
+<br><br>
+<img src=Images/ge_incsmt_sankey.png>
 
 ### Balance Sheet
 The definitions of nodes used for GEe's balance sheet sankey charts can be found in <i>nodes_ge_balsht.json</i>, and here is the visualization of the node relation.
-<br>
-Coming soon...
+<br><br>
+<img src=Images/ge_bal_sankey.png>
 
 
 ### Cash Flow Statement
 The definitions of nodes used for GEe's cashflow statement sankey charts can be found in <i>nodes_ge_cshfsmt.json</i>, and here is the visualization of the node relation.
-<br>
-Coming soon...
+<br><br>
+<img src=Images/ge_cshfsmt_sankey.png>
 
 
 ## Scripts
