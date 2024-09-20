@@ -44,7 +44,28 @@ You may find all the entries in the consoldiated balance sheet. Please copy and 
 <img src=Images/ge_balsht_cal_explain.png>
 
 ### Cash Flow Statement Dataset
-Coming soon...
+You may find all the entries in the consoldiated cashflow statement, except the entries. Please aggregate with the following instruction:
+<ul>
+	<li>Operating Activities:<ul>
+		<li>Pension Activities - Summation of <i>Principal pension plans cost</i>, <i>Principal pension plans employer contributions</i>, and <i>Other postretirement benefit plans</i></li>
+		<li>Income Taxes Activities - Summation of <i>Provision (benefit) for Income Taxes</i> and <i>Cash recovered (paid) during the year for income taxes</i></li>
+		<li>Change in operating working capital - Summation of all subitems under the <i>Changes in operating working capital</i> entry</li>
+	</ul></li>
+	<li>Investing Activities:<ul>
+		<li>Capital Expenditure, net - Summation of <i>Additions to property, plant and equipment and internal-use software</i> and <i>Dispositions of property, plant and equipment</i></li>
+		<li>Principal Businesses Purchased, net - Summation of <i>Net cash from (payment for) principal businesses purchased</i> and <i>Dispositions of retained ownership interests</i></li>
+	</ul></li>
+	<li>Financing Activities:<ul>
+		<li>Debt Activities - Summation of <i>Net increase (decrease) in borrowings (maturities of 90 days or less)</i>, <i>Newly issued debt (maturities longer than 90 days)</i>, <i>Repayments and other debt reductions (maturities longer than 90 days)</i>, and <i>Cash received (paid) for debt extinguishment costs</i></li>
+	</ul></li>
+</ul>
+
+<br><br>
+Please copy and paste the number without changing the sign from the report, the script will take care of the signs. If the number is not available on the consolidated statement, put 0 to that item, and <b>DO NOT OMIT THE ITEM</b>.
+
+<img src=Images/ge_cshfsht_cal1_explain.png>
+<img src=Images/ge_cshfsht_cal2_explain.png>
+<img src=Images/ge_cshfsht_cal3_explain.png>
 
 ## Nodes Explained
 In the Plotly sankey chart package, nodes represents a categorical entry while the links represents the value between the nodes. The nodes in this setting are generally represents the positions of the charts from left to right. It is designed in way to make scripts creation and modification clear, and especially to emphasize the hierarchy among nodes and have user's input data on either furthest left or furthest right of the chart.
