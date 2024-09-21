@@ -10,6 +10,7 @@ def get_nodes():
 	return json.load(f)
 
 # To determine how the link is linked between nodes and determine link colours
+# Be sure to clarify acct='liability' or acct='equity' if it is not asset acct
 def get_link_direction(left_node, right_node, curr_value, acct='asset'):
 	# For Liability
 	if acct=='liability':

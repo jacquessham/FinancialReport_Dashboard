@@ -1,7 +1,10 @@
-# Plug-in Templates
+# Plug-in Templates and Script Explanations
 Currently, the dashboard is only able display a list of selected companies because it is not able to handle the dynamics on the financial report formats among all publically traded companies. In order to add more companies, it is possible add more companies to the list by creating a plug-in. This folder contains the templates and instructions to create the plug-in. 
 
-## Instructions
+## How the Dashboard Scripts Work?
+More details are coming soon...
+
+## Instructions on Creating a New Plug-in
 The general workflows of creating a plug-in that is integratable to the dashboarding scripts are:
 <ol>
 	<li>Create a folder under the <i>data</i> folder in the <i>dashboard</i> folder, name it with the ticker of the company in lower cases. Within the folder, create another folder named <i>dataset</i> in lower cases</li>
@@ -99,13 +102,29 @@ Write the scripts to display sample dashboards for proof of concept. These scrip
 Copy <i>data_incsmt_XXXX.py</i> to the company file. Keep all the supporting functions. And develop in the <i>get_data()</i> function.
 
 <br><br>
-More details are coming soon...
+First, declare the node color array <i>nodes_colors</i>. You may pre-set the colors and change the color along the scripts, or add placeholders and change the color along the scripts. Then, keep the part where the script ingest data in a Pandas format. After that, create the sankey chart links and change the node colours in three main sections - Revenue, Expense, and EBIT sections.
+<br><br>
+In each section, create the links between the input data from the <i>XXXX_income_example.csv</i> and the sub-section nodes first, then create links from the sub-section node and the section node (Revenue, Expense, EBIT). Since the the input data nodes ranked in the beginning and the end of the <i>nodes_XXXX_incsmt.json</i> file, for loops can be utilized to streamline the creation. And finally, be sure to handle the link direction and node color if the input is negative.
+<br><br>
+The Node color should be assigned to <b>Revenue - gray</b>, <b>Expense - red</b>, <b>Positive EBIT - green</b>, and <b>Negative EBIT - red</b>; any income stream should be <b>lightgreen</b>, while losses should be <b>lightpink</b>.
 
+<br><br>
+The comment section in the template script provides more instruction to follow, but also reference in the later Example section for a walkthrough.
 
 ### Step 6: Develop and modify scripts to handle balance sheet data and chart
-More details are coming soon...
+Copy <i>data_balsht_XXXX.py</i> to the company file. Keep all the supporting functions. And develop in the <i>get_data()</i> function.
+
+<br><br>
+First, declare the node color array <i>nodes_colors</i>. You may pre-set the colors and change the color along the scripts. The Node colors are assigned to <b>Asset - green</b>, <b>Liabilities - red</b>, and <b>Equity - blue</b>, while node color should not be changed while displaying the records on a balance sheet. Then, keep the part where the script ingest data in a Pandas format. After that, create the sankey chart linksin three main sections - Asset, Liabilities, and Equity sections.
+<br><br>
+In each section, create the links between the input data from the <i>XXXX_balancesheet_example.csv</i> and the sub-section nodes first, then create links from the sub-section node, such as current asset or current liabilities, and the section node (Asset, Liabilities, Equity). Long-term asset or long-term liabilities are not required have their own nodes, but try to be consistent with the format on the financial reports. Since the the input data nodes ranked in the beginning and the end of the <i>nodes_XXXX_balsht.json</i> file, for loops can be utilized to streamline the creation. Balance sheet rarely report negative number, but sometimes you may find that at Depreciation under assets, or, more likely Retained Earning or Accumulated Earning. Be sure to handle the link direction and node color if the input is negative.
+<br><br>
+While creating links between nodes, utilize the <i>get_link_direction()</i> function to dynamically determine link direction, value, and color without hard-coding. Be sure to state the left node index, right node index, and <b>indicating ACCOUNT TYPE</b> (asset, liabilities, equity) to generate the right color.
 
 ### Step 7: Develop and modify scripts to handle cashflow statement data and chart
+Copy <i>data_cshfsmt_XXXX.py</i> to the company file. Keep all the supporting functions. And develop in the <i>get_data()</i> function.
+
+<br><br>
 More details are coming soon...
 
 <br><br>
