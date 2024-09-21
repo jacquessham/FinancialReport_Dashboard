@@ -47,9 +47,11 @@ Here is the structure:
 --dashboard
  |- data
  	|- (company)
- 		|- data
- 			|- dataset
- 			|- Images
+		|- dataset
+		|- Images
+		|- nodes_(company)_incsmt.json
+		|- nodes_(company)_balsht.json
+		|- nodes_(company)_cshfsmt.json
 ```
 
 ### Step 3: Prepare the Sample Data for the Dashboard
@@ -72,17 +74,61 @@ After prepared the templates, copy all the template entries to the example files
 <br><br>
 In the current version, the dashboard will ingest data from the <i>\_example.csv</i> files but <b>the naming convention will be changed in the future versions</b>.
 
+<br><br>
+```
+--dashboard
+ |- data
+ 	|- (company)
+		|- dataset
+			|- XXXX_income_template.csv
+			|- XXXX_balancesheet_template.csv
+			|- XXXX_cashflow_template.csv
+			|- XXXX_income_example.csv
+			|- XXXX_balancesheet_example.csv
+			|- XXXX_cashflow_example.csv
+		|- Images
+		|- nodes_(company)_incsmt.json
+		|- nodes_(company)_balsht.json
+		|- nodes_(company)_cshfsmt.json
+```
+
 ### Step 4: Draft Sample Scripts to Display Sample Dashboards
 Write the scripts to display sample dashboards for proof of concept. These scripts are okay to be hard-coded for this purpose. It is recommended to develop to visualize the dashboard for further development and planning. You may use the sample scripts and integrated with the dashboard in the development and/or testing environment.
 
 ### Step 5: Develop and modify scripts to handle income statement data and chart
+Copy <i>data_incsmt_XXXX.py</i> to the company file. Keep all the supporting functions. And develop in the <i>get_data()</i> function.
+
+<br><br>
 More details are coming soon...
+
 
 ### Step 6: Develop and modify scripts to handle balance sheet data and chart
 More details are coming soon...
 
 ### Step 7: Develop and modify scripts to handle cashflow statement data and chart
 More details are coming soon...
+
+<br><br>
+```
+--dashboard
+ |- data
+ 	|- (company)
+		|- dataset
+			|- XXXX_income_template.csv
+			|- XXXX_balancesheet_template.csv
+			|- XXXX_cashflow_template.csv
+			|- XXXX_income_example.csv
+			|- XXXX_balancesheet_example.csv
+			|- XXXX_cashflow_example.csv
+		|- Images
+		|- nodes_(company)_incsmt.json
+		|- nodes_(company)_balsht.json
+		|- nodes_(company)_cshfsmt.json
+		|- data_incsmt_XXXX.py
+		|- data_balsht_XXXX.py
+		|- data_cshfsmt_XXXX.py
+```
+
 
 ### Step 8: Integrate the scripts with the dashboard in the development environment
 Once all the <i>data_</i> scripts are prepared and ready, update the dashboard scripts (<i>income_statement.py</i>, <i>balancesheet.py</i>, and <i>cashflow_statement.py</i>) to connect the dashboard scripts with the <i>data_</i> scripts. In those scripts, simply import the <i>data_</i> scripts in the dashboard scripts, and add the company ticker in the if-statement to allow the dashboard scripts to translate the data to the sankey chart setup.
