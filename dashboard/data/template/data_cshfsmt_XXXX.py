@@ -98,12 +98,7 @@ def get_data(df):
 		link_temp[2],link_temp[3])
 	nodes_colors = change_node_color(nodes_colors, 0, curr_value)
 	
-	## Net Increase in Cash
-	curr_value = df[df['Node_num']==10]['Value'].values[0]
-	link_temp = get_link_direction(9, 10, curr_value)
-	links = add_node_to_link(links, link_temp[0],link_temp[1],
-		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 10, curr_value)
+	
 
 	## Non-Cash Charges here
 	op_non_cash = 0
@@ -150,5 +145,12 @@ def get_data(df):
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 	nodes_colors = change_node_color(nodes_colors, 12, fin)
+	
+	## Net Increase in Cash
+	curr_value = df[df['Node_num']==10]['Value'].values[0]
+	link_temp = get_link_direction(9, 10, curr_value)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 10, curr_value)
 	
 	return nodes_label, nodes_colors, links
