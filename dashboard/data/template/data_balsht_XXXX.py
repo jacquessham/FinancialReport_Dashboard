@@ -4,9 +4,12 @@ import pandas as pd
 
 
 # Read the Node structure setup json file
+"""
+Be sure to update the node definition file
+"""
 def get_nodes():
 	curr_dir = Path(__file__).parent
-	f = open(f'{curr_dir}/nodes_googl_balsht.json')
+	f = open(f'{curr_dir}/nodes_XXXX_balsht.json')
 	return json.load(f)
 
 # To determine how the link is linked between nodes and determine link colours
