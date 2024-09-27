@@ -88,10 +88,11 @@ def get_data(df):
 		to company or not
 
 	The algo consists of Operating Activities, Financing Activities,
-	Investment Activities, as reflected on 10-K or 10-Q, in 3 parts
+	Investing Activities, as reflected on 10-K or 10-Q, in 3 parts
 
 	Each part will loop over subcategories first, then link it to category,
-	and link the category to total
+	and link the category to total. At last, connect Financing Activities and
+	Investing Activities with Operating Activities.
 	"""
 
 
