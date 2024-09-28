@@ -2,7 +2,13 @@
 Currently, the dashboard is only able display a list of selected companies because it is not able to handle the dynamics on the financial report formats among all publically traded companies. In order to add more companies, it is possible add more companies to the list by creating a plug-in. This folder contains the templates and instructions to create the plug-in. 
 
 ## How the Dashboard Scripts Work?
-More details are coming soon...
+All the scripts are saved under the <i>dashboard</i> folder, which is the root folder of the dashboard. The dashboard driver script is <i>dashboard.py</i> where it defines the dashboard setup and interactions. When <i>dashboard.py</i> is executed, it loads all the data through <i>loaddata.py</i> in the <i>data</i> folder and saved in the <i>company_data</i> in a dictionary, and render the dashboard frontend via the definitons according to <i>data_structure.py</i>.
+<br><br>
+When the user intereacts with dashboard or render based on default setting, it will render the visualizations through one of these scripts, <i>income_statement.py</i>, <i>balancesheet.py</i>, and <i>cashflow_statement.py</i>, corresponding to the tab selection among income statement, balance sheet, or cashflow statement of the selcted company at the selected period. Each respective script will convert the data in <i>company_data</i> to the format accepted by Plotly through <i>data_incsmt_XXXX.py</i>, <i>data_balsht_XXXX.py</i>, or <i>data_cshfsmt_XXXX.py</i>, respective to its reporting.
+<br><br>
+
+Here is the visualization of the scripts relationship:
+<img src=dashboard_structure.png>
 
 ## Instructions on Creating a New Plug-in
 The general workflows of creating a plug-in that is integratable to the dashboarding scripts are:
@@ -39,7 +45,14 @@ Here is the structure:
 Create 3 JSON files to define the Node index to map the financial reporting items, with the following formats: <i>nodes\_(company)\_incsmt.json</i>, <i>nodes\_(company)\_balsht.json</i>, and <i>nodes\_(company)\_cshfsmt.json</i>, and saved under the company folder.
 <br><br>
 
-The Node index represents the node position on building the sankey chart utilizing the Plotly package, and will be used in the scripts in the later steps. More detailed instructions are coming soon...
+The Node index represents the node position on building the sankey chart utilizing the Plotly package, and will be used in the scripts in the later steps. The Sankey Chart on the financial reports happens to have all input data to be plotted at the furthest left and furthest right of the chart, that is the observation after the conducting the Proof of Concept. Therefore, it is wise to set the index for all input data to be beginning of the indexes and the ending of the indexes, and leave all the aggregated metrics to be the median of the index numbers. For example, if we are going to assign the nodes on a company's balance sheet sankey chart, assign all asset account data from 0 to the available current and long-term asset, while assign the numbers from total number of nodes lessthe available current and long-term liabilities and equity to the total number of nodes. Here is the visual explanation:
+<img src=step2_ex.png>
+
+<br>
+Given the company has 3 inputs on current assets, 1 input on long-term asset, 2 inputs on current liabilities, 1 input on long-term liability, 2 inputs on Equity. To assign the node index, I assign 0-3 for all inputs on asset, then assign sub-category on asset (current asset and long-term asset), then Asset. After that, assign the sub-category on liabilities and equity (if reported on the balance sheet), and finally all inputs on liabilities and quity. Therefore, all liabilities input are 9-13.
+<br><br>
+Using this indexing method will allow a more easier and systematically logics when developing the <i>data_</i> scripts in the later steps. 
+
 <br><br>
 The definition files and scripts are expected to saves under company folder due to the dashboard scripts setup. And also <b>due to the dashboard scripts setup, please follow the letter cases stated in this instruction!</b>
 
