@@ -1,7 +1,5 @@
 # Dashboard
-The dashboard is currently under development, the alpha version maybe tested with instruction under the instruction section.
-<br><br>
-More details are coming soon...
+The Dashboard is in a matured state but actively testing before official launch. It is now at the Beta version and stayed tuned for the future release. You may find more details and instructions on the dashboard in this folder.
 
 ## Developement Update
 The dashboard layout is drafted and able to displaying the chart with pre-matured backend. Currently the dashboard has the following avilable companies: Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), and General Electrics on selected period of data. The backend is drafted and undergo with various testing. The next step is to add more for testing, backend on ingesting and verifying user's input data, and investigate the possibility of adding more features to the existing frontend. Stay tuned in the future releases. Here are the screenshots of the current version of the dashboard.
@@ -12,10 +10,10 @@ The dashboard layout is drafted and able to displaying the chart with pre-mature
 
 ## Instruction
 ### Prepare the Data
-Currently, every company contains at least one annual report data. Only Google (GOOGL) contains some quarterly report data. However, the dataset template is available in the dataset folder in each company folder under the [Data](data) folder. Detailed Instruction will be available in the [Data](data) folder. In the current version, the sample data is sufficient to run the dashboard on each company.
+Currently, every company contains two annual report data (FY22 and FY23). Only Google (GOOGL) contains some quarterly report data. However, the dataset template is available in the dataset folder in each company folder under the [Data](data) folder. Detailed Instruction will be available in the [Data](data) folder. In the current version, the sample data is sufficient to run the dashboard on each company.
 
 ### Running the Dashboard
-To run the dashboard, run execute this on the command line:
+To run the dashboard, run execute this on the command line (Script locates at the current directory):
 
 ```
 python dashboard.py
