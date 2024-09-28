@@ -1,0 +1,20 @@
+{
+	"iPhone":0,
+	"Mac":1,
+	"iPad":2,
+	"Wearables, Home and Accessories":3,
+	"Products Sales":4,
+	"Services Sales":5,
+	"Net Sales":6,
+	"Operating Expenses":7,
+	"Operating Income":8,
+	"Cost of Sales":9,
+	"EBIT":10,
+	"Income Taxes":11,
+	"Net Income":12,
+	"Research & Development":13,
+	"Selling, General and Administrative":14,
+	"Other Income (Expenses), net":15,
+	"Product Cost of Sales":16,
+	"Service Cost of Sales":17
+}

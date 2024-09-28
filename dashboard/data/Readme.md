@@ -4,5 +4,17 @@ This is the Data folder where the dashboard administrator will be preparing the 
 ## Google (GOOGL)
 The Google folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Google](googl) folder.
 
+## Apple (AAPL)
+The Apple folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Apple](aapl) folder.
+
+## Meta (FB)
+The Meta folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Meta](meta) folder.
+
+## Bank of America (BAC)
+The Bank of America folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Bank of America](bac) folder.
+
+## GE (GE)
+The General Eletric folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [GE](ge) folder.
+
 ## Plug-in Templates and Script Explanations
 If you would like to add more company options, you may create more plug-ins. Here are the instructions and guidelines in the [Plug-in Templates and Script Explanations](template) folder. You may also find the details on the script functions explanation and general workflow on how the scripts work.
