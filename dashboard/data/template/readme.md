@@ -28,7 +28,7 @@ The general workflows of creating a plug-in that is integratable to the dashboar
 <br><br>
 
 ### Step 1: Create a Folder for a Company to Initiate the Plug-in
-Create a folder under the <i>data</i> folder in the <i>dashboard</i> folder, name it with the ticker of the company in lower cases. Within the folder, create another folder named <i>dataset</i> in lower cases. <b>Due to the dashboard scripts setup, please follow the letter cases stated in this instruction!</b> It is recommended to create a folder named <i>Images</i> for storing images for documentation. 
+On the Github side, create a new branch based on the <i>development</i> branch first. Create a folder under the <i>data</i> folder in the <i>dashboard</i> folder, name it with the ticker of the company in lower cases. Within the folder, create another folder named <i>dataset</i> in lower cases. <b>Due to the dashboard scripts setup, please follow the letter cases stated in this instruction!</b> It is recommended to create a folder named <i>Images</i> for storing images for documentation. 
 <br><br>
 Here is the structure:
 
@@ -69,6 +69,10 @@ Here is the structure:
 		|- nodes_(company)_balsht.json
 		|- nodes_(company)_cshfsmt.json
 ```
+
+<br><br>
+<b>Tips</b>: When writing scripts on preparing data for charting, the rule of thumb is to ingest lower granularity data. Whatever the smaller entries, it should be indexed to be lowest or highest in the node definition. Whatever the aggregated entries should be indexed in the relative closed to the median indexes.
+
 
 ### Step 3: Prepare the Sample Data for the Dashboard
 Copy <i>XXXX_income_template.csv</i>, <i>XXXX_income_example.csv</i>, <i>XXXX_balancesheet_template.csv</i>, <i>XXXX_balancesheet_example.csv</i>, <i>XXXX_cashflow_template.csv</i> and <i>XXXX_cashflow_example.csv</i> from this folder. Next, prepare the template files. Replace the <i>XXXX</i> with the <b>company ticker</b>.
@@ -177,9 +181,99 @@ Test the scripts in the testing environment and fix any bug before rollout in th
 ### Step 10: Rollout to the production environment
 Once the plug-in is ready for the production environment, create a pull request and rollout to the production environment.
 
-### The General Format on Scripts 
-When writing scripts on preparing data for charting, the rule of thumb is to ingest lower granularity data (Node numbers are either in the beginning or at the end). More details are coming soon...
+
 
 
 ## Example - Creating a Plug-in for Google
-More details are coming soon...
+Let's walkthrough the steps with the example of adding Google plug-in to the dashboard:
+
+### Step 1: Create a Folder for Google to Initiate the Plug-in
+Create a new branch in Github and create a folder (Use Google's ticker <i>googl</i> as the folder name). The structure now should look like this:
+
+```
+--dashboard
+ |- data
+ 	|- googl
+		|- dataset
+		|- Images
+```
+
+### Step 2: Development Definition Files (Node Indexes) for Plug-in
+Go to SEC Edgar and obtain the latest <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/goog-20221231.htm">10-K</a>.
+<br><br>
+Go to consolidated balance sheet, and identify all the input entries (All the entries that cannot be calculated/aggregated, see the red boxed entires in the below image). Because the aggregated entries, such as Total cash, cash equivalents, and marketable securities, Total current asset, can be added up from their dependent entries, it can be added up in the later scripts. Assign node index to entries found in the 10-K, assign the beginning index number for all asset entries, then asset subcategories, then asset, liabilities, equity, then subcategories on liabilities and equity, and finally liabilities and equity input entries. If the entries is too small, you may combine the related entries into one entry, but be sure to document it.
+<br><br>
+After assigning the node index on balance sheet, do the same for income statement, and cashflow statement. At the end, visualize the node relationship on those definition files and visualize it on readme.
+<br>
+
+<img src=balsht_nodes.png>
+
+
+<br><br>
+The structure now should look like this:
+<br>
+
+```
+--dashboard
+ |- data
+ 	|- googl
+		|- dataset
+		|- Images
+		|- nodes_googl_incsmt.json
+		|- nodes_googl_balsht.json
+		|- nodes_googl_cshfsmt.json
+```
+
+### Step 3: Prepare the Sample Data for the Dashboard
+Copy <i>XXXX_income_template.csv</i>, <i>XXXX_income_example.csv</i>, <i>XXXX_balancesheet_template.csv</i> and replace XXXX with <i>googl</i>. Copy the node requires input, or input entries into the template files, and put the placeholder for Period and Value on the template file. Once prepared the template for all those files, duplicate the template and rename it to sample date files and input all sample data from the 10-K. So far the folder should have:
+
+```
+--dashboard
+ |- data
+ 	|- googl
+		|- dataset
+			|- googl_income_template.csv
+			|- googl_balancesheet_template.csv
+			|- googl_cashflow_template.csv
+			|- googl_income_example.csv
+			|- googl_balancesheet_example.csv
+			|- googl_cashflow_example.csv
+```
+
+### Step 4: Draft Sample Scripts to Display Sample Dashboards
+Write the scripts to display sample dashboard. Therefore, we drafted <i>income_googl_poc.py</i>, <i>balancesheet_googl_poc.py</i>, and <i>cashflow_googl_poc.py</i>.
+
+
+### Step 5,6,7: Develop and modify scripts to handle all data and chart
+Copy <i>data_incsmt_XXXX.py</i>, <i>data_balsht_XXXX.py</i>, <i>data_cshfsmt_XXXX.py</i> to the company file. Keep all the supporting functions. And develop in the get_data() function. See the [Google](../googl) folder for the finalized version.
+<br><br>
+The structure now should look like this:
+<br>
+
+
+```
+--dashboard
+ |- data
+ 	|- googl
+		|- dataset
+			|- googl_income_template.csv
+			|- googl_balancesheet_template.csv
+			|- googl_cashflow_template.csv
+			|- googl_income_example.csv
+			|- googl_balancesheet_example.csv
+			|- googl_cashflow_example.csv
+		|- nodes_googl_incsmt.json
+		|- nodes_googl_balsht.json
+		|- nodes_googl_cshfsmt.json
+		|- data_incsmt_googl.py
+		|- data_balsht_googl.py
+		|- data_cshfsmt_googl.py
+```
+
+
+### Step 8, 9: Integrate and Test the Scripts with the Dashboard in the Development environment
+Integrate the scripts in the folder and test the dashboard.
+
+### Step 9: Rollout to the production Environment
+Happy analyzing!
+
