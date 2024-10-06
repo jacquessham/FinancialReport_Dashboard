@@ -9,7 +9,7 @@ Be sure to update the node definition file
 """
 def get_nodes():
 	curr_dir = Path(__file__).parent
-	f = open(f'{curr_dir}/nodes_XXXX_cshfsmt.json')
+	f = open(f'{curr_dir}/nodes_nvda_cshfsmt.json')
 	return json.load(f)
 
 # Link Direction

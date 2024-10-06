@@ -4,7 +4,7 @@ import plotly.graph_objs as go
 from data.XXXX.data_incsmt_XXXX import *
 
 
-def income_statement_GOOGL(data):
+def income_statement_XXXX(data):
     nodes_label, nodes_colors, links = get_data(data)
     fig = go.Figure(data=[go.Sankey(
         node = dict(
