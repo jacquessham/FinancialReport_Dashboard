@@ -1,8 +1,13 @@
 {
-	"Revenue":9,
-	"Costs and Expense":10,
-	"Income from Operation":11,
-	"EBIT":14,
-	"Income Tax":18,
-	"Net Income":19
+	"Revenue":0,
+	"Costs of Revenue":1,
+	"Gross Profit":2,
+	"Operating Expense":3,
+	"Earning before Income Tax":4,
+	"Research and Development":5,
+	"Sales, General and Administrative":6,
+	"Acquisition Termination Cost":7,
+	"Operating Income":8,
+	"Income Tax":9,
+	"Net Income":10
 }
