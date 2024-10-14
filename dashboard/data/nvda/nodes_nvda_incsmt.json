@@ -1,7 +1,7 @@
 {
 	"Revenue":0,
 	"Costs of Revenue":1,
-	"Gross Profit":2,
+	"EBIT":2,
 	"Operating Expense":3,
 	"Earning before Income Tax":4,
 	"Research and Development":5,

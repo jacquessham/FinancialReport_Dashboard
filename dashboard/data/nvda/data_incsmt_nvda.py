@@ -58,7 +58,7 @@ def get_data(df):
 	if gross_profit >= 0:
 		links = add_node_to_link(links, 0, 2, gross_profit, 'lightgray')
 	else:
-		links = add_node_to_link(links, 2, 0, -1*gross_profit, 'red')
+		links = add_node_to_link(links, 2, 0, -1*gross_profit, 'pink')
 	
 
 	## Cost and Expense
@@ -88,34 +88,19 @@ def get_data(df):
 
 	## EBIT
 	"""
-	After Handling the revenue and expense sections, the next section
-	shall be EBIT, income tax, and net income.
-
-	Here are the steps:
-	1 - Define the ebit metric to aggregate all its sub-section links
-		to obtain the value placed in its link to connect between EBIT
-		and revenue node
-	2 - Create link between EBIT income tax, net income, interest expense,
-		other income/loss reported in the EBIT section. Be caution:
-			a - Handle the direction if the value is negative, ie, switch
-				the origin node and destination node. Handle the node link
-				color based on negative or positive number
-			b - Convert negative number to positive after last step
-			c - Handle the node color based on the metric was original a
-				negative or positive number
-	3 - Incrementally add the current value to the ebit metric
-	4 - Create a link between revenue and EBIT
+	First handle the interest income. After that, the next section
+	shall be income tax, and net income.
 	"""
 
 
 	
 	### Interest Income
-	op_income = df[df['Node_num']==8]['Value'].values[0] 
-	if op_income <0:
-		links = add_node_to_link(links, 2, 8, op_income, 'pink')
+	int_income = df[df['Node_num']==8]['Value'].values[0] 
+	if int_income <0:
+		links = add_node_to_link(links, 2, 8, int_income, 'pink')
 		nodes_colors[8]='red'
 	else:
-		links = add_node_to_link(links, 8, 2, op_income, 'lightgreen')
+		links = add_node_to_link(links, 8, 2, int_income, 'lightgreen')
 		nodes_colors[8]='green'
 
 	ebit = 0
