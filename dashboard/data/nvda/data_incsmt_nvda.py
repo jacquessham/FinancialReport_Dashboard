@@ -35,80 +35,31 @@ def get_data(df):
 
 
 	
-	# Hardcode the colors
-	"""
-	Define the node color here, use gray for revenue,
-	green for positive income, red for expense or negative income
-
-	Example:
-	nodes_colors = ['gray']*10 + ['red'] + ['green'] + ['red']*4 
-
-	"""
-	
+	# Define Node colors
+	nodes_colors = ['gray','red','gray','red','green']
+	nodes_colors += ['red']*3
+	nodes_colors += ['green','red','green']
 
 	# Map each KPI with the preassigned index number in nodes_label
 	df_temp = {'Items': [k for k in nodes.keys()], 
 		'Node_num':[nodes[k] for k in nodes.keys()]}
 	df = pd.merge(df, pd.DataFrame(df_temp), on='Items', how='inner')
 
-	# Add with itemized revenue
+	# Revenue
 	"""
-	If the revenue is partitioned, you need to aggregate all itemized
-	revenue to the revenue node. You may do it in a for loop. 
-	Here are the steps:
-	1 - Define revenue metrics
-	2 - Go over a for loop
-		a - Obtain the value to this node
-		b - Create a link, place the link between the itemized revenue
-			and the sub-revenue node, with the value and colour
-		c - Incrementally add the current value to the revenue metric
-	3 - After the loop place the link between the sub-revenue node and 
-		the revenue node. 
-
-	Note: If the revenue is not partitioned (Such as Meta), a for loop
-		  is not needed. If there is more sub-partitions, feel free to
-		  have more inner for loop.
-
+	NVDA reports revenue - cost of revenue = gross profit, the structure
+	is different with other companies. And there is no subcategorical
+	revenue reporting.
+	""" 
+	revenue = df[df['Node_num']==0]['Value'].values[0]
+	cogs = df[df['Node_num']==1]['Value'].values[0]
+	gross_profit = revenue - cogs
+	links = add_node_to_link(links, 0, 1, cogs, 'lightpink')
+	if gross_profit >= 0:
+		links = add_node_to_link(links, 0, 2, gross_profit, 'lightgray')
+	else:
+		links = add_node_to_link(links, 2, 0, -1*gross_profit, 'red')
 	
-	Example:
-	item_value = 0
-	for i in range(3):
-		df_revenue = df[df['Node_num']==i]
-		curr_value = df_revenue['Value'].values[0]
-		links = add_node_to_link(links, i, 7, curr_value, 'lightgray')
-		ads_value += curr_value
-	links = add_node_to_link(links, 7, 8, item_value , 'lightgray')
-	"""
-
-
-	## Other Revenue and to handle losses
-	"""
-	If there is any entries not belong to the standard revenue reporting
-	but counted toward to the total revenue, such as other income, you
-	may place it here. Use a for loop needed.
-
-	Here are the steps:
-	1 - (Optional) Define aggregated metrics only if reported
-		in the financial reports
-	2 - Create a link (Either individually or in a for loop)
-		a - Obtain the value to this node
-		b - Place the link between the itemized revenue
-			and the revenue or sub-revenue node, with the value and colour
-		c - (Optional) Incrementally add the current value to the 
-			revenue metric only if reported in the financial reports
-	3 - (Optional) After the loop place the link between the sub-revenue node 
-		and the revenue node only if reported in the financial reports
-	4 - Change color to red if the income is a loss 
-
-	Example:
-	for i in range(5,7):
-		df_revenue = df[df['Node_num']==i]
-		curr_value = df_revenue['Value'].values[0]
-		if curr_value >= 0:
-			links = add_node_to_link(links, i, 9, curr_value, 'lightgray')
-		else:
-			links = add_node_to_link(links, 9, i, -1*curr_value, 'red')
-	"""
 
 	## Cost and Expense
 	"""
@@ -125,16 +76,15 @@ def get_data(df):
 			or sub-expense metrics
 	3 - After the loop place the link between the sub-expense node and 
 		the total expense node. 
-
-	Example:
+	"""
 	cost_expense = 0
-	for i in range(12, 16):
+	for i in range(5, 8):
 		df_revenue = df[df['Node_num']==i]
 		curr_value = df_revenue['Value'].values[0]
 		cost_expense += curr_value
-		links = add_node_to_link(links, 10, i, curr_value, 'pink')
-	links = add_node_to_link(links, 9, 10, cost_expense, 'pink')
-	"""
+		links = add_node_to_link(links, 3, i, curr_value, 'pink')
+	links = add_node_to_link(links, 2, 3, cost_expense, 'pink')
+
 
 	## EBIT
 	"""
@@ -155,38 +105,47 @@ def get_data(df):
 				negative or positive number
 	3 - Incrementally add the current value to the ebit metric
 	4 - Create a link between revenue and EBIT
+	"""
 
 
+	
+	### Interest Income
+	op_income = df[df['Node_num']==8]['Value'].values[0] 
+	if op_income <0:
+		links = add_node_to_link(links, 2, 8, op_income, 'pink')
+		nodes_colors[8]='red'
+	else:
+		links = add_node_to_link(links, 8, 2, op_income, 'lightgreen')
+		nodes_colors[8]='green'
 
 	ebit = 0
 	### Income Tax
-	curr_value = df[df['Node_num']==18]['Value'].values[0] 
+	curr_value = df[df['Node_num']==9]['Value'].values[0] 
 	if curr_value >0:
-		links = add_node_to_link(links, 17, 18, curr_value, 'pink')
-		nodes_colors.append('red')
+		links = add_node_to_link(links, 4, 9, curr_value, 'pink')
+		nodes_colors[9]='red'
 	else:
-		links = add_node_to_link(links, 18, 17, curr_value, 'lightgreen')
-		nodes_colors.append('green')
+		links = add_node_to_link(links, 9, 4, curr_value, 'lightgreen')
+		nodes_colors[9]='green'
 	ebit += curr_value
-
-	if ebit > 0:
-		nodes_colors[17] = 'green'
-	else:
-		nodes_colors[17] = 'red'
 
 	### Net Income
-	curr_value = df[df['Node_num']==19]['Value'].values[0] 
+	curr_value = df[df['Node_num']==10]['Value'].values[0] 
 	if curr_value >0:
-		links = add_node_to_link(links, 17, 19, curr_value, 'lightgreen')
-		nodes_colors.append('green')
-
+		links = add_node_to_link(links, 4, 10, curr_value, 'lightgreen')
+		nodes_colors[10]='green'
 	else:
-		links = add_node_to_link(links, 19, 17, curr_value, 'pink')
-		nodes_colors.append('red')
+		links = add_node_to_link(links, 10, 4, -1*curr_value, 'pink')
+		nodes_colors[10]='red'
 	ebit += curr_value
-	links = add_node_to_link(links, 11, 17, ebit, 'lightgreen')
-	"""
-
+	
+	## EBIT
+	if ebit > 0:
+		nodes_colors[4] = 'green'
+		links = add_node_to_link(links, 2, 4, ebit, 'lightgreen')
+	else:
+		nodes_colors[4] = 'red'
+		links = add_node_to_link(links, 4, 2, -1*ebit, 'lightpink')
 	
 
 	# Return result
