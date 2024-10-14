@@ -97,111 +97,86 @@ def get_data(df):
 
 
 	# Operating Activities here
-	"""
-	Operating Activities will first handle between Net Income and
-	Operating Activities.
-
-
-	Example:
 	## Net Income here
-	curr_value = df[df['Node_num']==0]['Value'].values[0]
-	link_temp = get_link_direction(0, 9, curr_value)
+	net_inc = df[df['Node_num']==0]['Value'].values[0]
+	link_temp = get_link_direction(0, 15, net_inc)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 0, curr_value)
-	
-	
-	After handling Net income, create the links between input records
-	and Operating Activities subsection. Ignore this step if there is
-	no subsections. Finally, create the links between other input records
-	and Operating Activies. Use a for loop needed.
+	nodes_colors = change_node_color(nodes_colors, 0, net_inc)
 
-	Exmaple:
-	## Links between subsections and input records
+	## Links between non-cash adjustment and input records
 	op_non_cash = 0
-	for i in range(1,8):
+	for i in range(1,6):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(i, 8, curr_value)
+		link_temp = get_link_direction(i, 13, curr_value)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		op_non_cash += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 
-	## Link Subsection to Operating Activities
-	links = add_node_to_link(links, 8, 9, op_non_cash, 'lightgreen')
-	nodes_colors = change_node_color(nodes_colors, 8, op_non_cash)
-	nodes_colors[9] = 'green' # Operating Activities Node itself
-	"""
+	## Link from non-cash adjustment to Operating Activities
+	links = add_node_to_link(links, 13, 15, op_non_cash, 'lightgreen')
+	nodes_colors = change_node_color(nodes_colors, 13, op_non_cash)
+
+	## Links between change in asset and lib and input records
+	change_asset = 0
+	for i in range(6,12):
+		curr_value = df[df['Node_num']==i]['Value'].values[0]
+		link_temp = get_link_direction(i, 14, curr_value)
+		links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+		change_asset += curr_value
+		nodes_colors = change_node_color(nodes_colors, i, curr_value)
+
+	## Link from non-cash adjustment to Operating Activities
+	link_temp = get_link_direction(14, 15, change_asset)
+	links = add_node_to_link(links, link_temp[0],link_temp[1],
+		link_temp[2],link_temp[3])
+	nodes_colors = change_node_color(nodes_colors, 14, change_asset)
+	
+	## Change color for Operating Activities
+	op = net_inc+ op_non_cash + change_asset
+	nodes_colors = change_node_color(nodes_colors, 15, op)
+
 
 	# Investing Activities here
-	"""
-	Create the links between input records and Investing Activities subsection.
-	Ignore this step if there is no subsections. Finally, create the links 
-	between other input records and Investing Activies. Use a for loop needed.
-
-	
-	Example:
 	invest = 0
-	for i in range(13,17):
+	for i in range(18,24):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(11, i, curr_value, False, True)
+		link_temp = get_link_direction(16, i, curr_value, False, True)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		invest += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Investing Activities
-	link_temp = get_link_direction(9, 11, invest, False, True)
+	link_temp = get_link_direction(15, 16, invest, False, True)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 11, invest)
-	"""
+	nodes_colors = change_node_color(nodes_colors, 16, invest)
+
 
 	# Financing Activities here
-	"""
-	Create the links between input records and Investing Activities subsection.
-	Ignore this step if there is no subsections. Finally, create the links 
-	between other input records and Investing Activies. Use a for loop needed.
-
-	Example:
 	fin = 0
-	for i in range(17,20):
+	for i in range(24,31):
 		curr_value = df[df['Node_num']==i]['Value'].values[0]
-		link_temp = get_link_direction(12, i, curr_value, False, True)
+		link_temp = get_link_direction(17, i, curr_value, False, True)
 		links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
 		fin += curr_value
 		nodes_colors = change_node_color(nodes_colors, i, curr_value)
 	## Link Operating Activities to Financing Activities
-	link_temp = get_link_direction(9, 12, fin, False, True)
+	link_temp = get_link_direction(15, 17, fin, False, True)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 12, fin)
-	"""
-
-
-	## Net Increase in Cash and Exchange Rate Effect 
-	"""
-	After Complete Operating Activities, Investing Activities, and Financing
-	Activities, creates the links:
-	- Exchange Rate Effect (If reported)
-	- Net Increase in Cash
-	For both links, use those nodes as "left node" and Operating Activities
-	as "right node"
-
-	# Net Effect on Exchange Rate
-	curr_value = df[df['Node_num']==28]['Value'].values[0]
-	link_temp = get_link_direction(14, 28, curr_value)
-	links = add_node_to_link(links, link_temp[0],link_temp[1],
-		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 28, curr_value)
+	nodes_colors = change_node_color(nodes_colors, 17, fin)
 
 	# Net Increase in Cash
-	curr_value = df[df['Node_num']==10]['Value'].values[0]
-	link_temp = get_link_direction(14, 28, curr_value)
+	curr_value = df[df['Node_num']==12]['Value'].values[0]
+	link_temp = get_link_direction(15, 12, curr_value)
 	links = add_node_to_link(links, link_temp[0],link_temp[1],
 		link_temp[2],link_temp[3])
-	nodes_colors = change_node_color(nodes_colors, 10, curr_value)
-	"""
+	nodes_colors = change_node_color(nodes_colors, 12, curr_value)
+
 	
 	# Return result
 	return nodes_label, nodes_colors, links

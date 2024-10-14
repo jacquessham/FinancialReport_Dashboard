@@ -5,6 +5,7 @@ from data.aapl.cashflow_aapl import *
 from data.meta.cashflow_meta import *
 from data.bac.cashflow_bac import *
 from data.ge.cashflow_ge import *
+from data.nvda.cashflow_nvda import *
 
 
 # Function called by dashboard.py
@@ -19,4 +20,6 @@ def cashflow_statement_figure(company, data):
 		return cashflow_statement_BAC(data)
 	elif company == 'ge':
 		return cashflow_statement_GE(data)
+	elif company == 'nvda':
+		return cashflow_statement_NVDA(data)
 	return None
