@@ -5,7 +5,7 @@ Currently, the dashboard is still under development <b>v0.1.2</b> (Beta).
 
 
 ## Dashboard
-The Dashboard is in a matured state and allow users to select Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), and General Electrics on selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. You may run the dashboard by execute the following code in the command line:
+The Dashboard is in a matured state and allow users to select Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), General Electrics (GE), and Nvidia (NVDA) on selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. You may run the dashboard by execute the following code in the command line:
 
 ```
 python dashboard/dashboard.py
