@@ -1,7 +1,7 @@
 # Financial Report Dashboard
 Inspired from the sankey chart found in this <a href="https://www.reddit.com/r/dataisbeautiful/comments/10ur1ya/oc_how_google_makes_money_its_2022_income/">post</a> on Reddit, the goal is to develop a dashboard to display similar visualization for other companies on income statement, balance sheet, and cash flow statement. This project is aimed to visualize financial reports with sankey charts along with other useful visualizations that helps users to conduct fundamental analysis on publicly traded company.
 <br><br>
-Currently, the dashboard is still under development <b>v0.1.0</b> (Beta).
+Currently, the dashboard is still under development <b>v0.1.2</b> (Beta).
 
 
 ## Dashboard
