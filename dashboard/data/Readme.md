@@ -16,5 +16,8 @@ The Bank of America folder contains the supporting scripts to create sankey char
 ## GE (GE)
 The General Eletric folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [GE](ge) folder.
 
+## Nvidia (NVDA)
+The Nvidia folder contains the supporting scripts to create sankey charts on the dashboard, as well as the dataset templates and sample datasets. More instruction on data parparation in the [Nvidia](nvda) folder.
+
 ## Plug-in Templates and Script Explanations
 If you would like to add more company options, you may create more plug-ins. Here are the instructions and guidelines in the [Plug-in Templates and Script Explanations](template) folder. You may also find the details on the script functions explanation and general workflow on how the scripts work.
