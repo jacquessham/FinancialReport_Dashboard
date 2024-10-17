@@ -1,11 +1,11 @@
 # Financial Report Dashboard
 Inspired from the sankey chart found in this <a href="https://www.reddit.com/r/dataisbeautiful/comments/10ur1ya/oc_how_google_makes_money_its_2022_income/">post</a> on Reddit, the goal is to develop a dashboard to display similar visualization for other companies on income statement, balance sheet, and cash flow statement. This project is aimed to visualize financial reports with sankey charts along with other useful visualizations that helps users to conduct fundamental analysis on publicly traded company.
 <br><br>
-Currently, the dashboard is still under development <b>v0.1.0</b> (Beta).
+Currently, the dashboard is still under development <b>v0.1.2</b> (Beta).
 
 
 ## Dashboard
-The Dashboard is in a matured state and allow users to select Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), and General Electrics on selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. You may run the dashboard by execute the following code in the command line:
+The Dashboard is in a matured state and allow users to select Google (GOOGL), Meta (META), Apple (AAPL), Bank of America (BAC), General Electrics (GE), and Nvidia (NVDA) on selected period of data. You may check out the progress in the [Dashboard](dashboard) folder. You may run the dashboard by execute the following code in the command line:
 
 ```
 python dashboard/dashboard.py

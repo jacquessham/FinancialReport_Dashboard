@@ -5,6 +5,7 @@ from data.aapl.balance_sheet_aapl import *
 from data.meta.balance_sheet_meta import *
 from data.bac.balance_sheet_bac import *
 from data.ge.balance_sheet_ge import *
+from data.nvda.balance_sheet_nvda import *
 
 
 # Function called by dashboard.py
@@ -19,4 +20,6 @@ def balancesheet_figure(company, data):
 		return balance_sheet_BAC(data)
 	elif company == 'ge':
 		return balance_sheet_GE(data)
+	elif company == 'nvda':
+		return balance_sheet_NVDA(data)
 	return None
