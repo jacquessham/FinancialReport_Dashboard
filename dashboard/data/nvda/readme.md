@@ -78,8 +78,8 @@ The definitions of nodes used for nvdae's balance sheet sankey charts can be fou
 
 ### Cash Flow Statement
 The definitions of nodes used for nvdae's cashflow statement sankey charts can be found in <i>nodes_nvda_cshfsmt.json</i>, and here is the visualization of the node relation.
-<br><br>
-Visualization coming soon...
+<br>
+<img src=Images/nvda_cshfsmt_sankey.png>
 
 ## Scripts
 Here are the scripts utilized by <i>dashboard.py</i>:
