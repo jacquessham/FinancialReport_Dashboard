@@ -66,13 +66,15 @@ The nodes used in the sankey charts are defined in the json files - <i>nodes_nvd
 
 ### Income Statment
 The definitions of nodes used for nvdae's income statement sankey charts can be found in <i>nodes_nvda_incsmt.json</i>, and here is the visualization of the node relation.
-<br><br>
-Visualization coming soon...
+<br>
+
+<img src=Images/nvda_incsmt_sankey.png>
 
 ### Balance Sheet
 The definitions of nodes used for nvdae's balance sheet sankey charts can be found in <i>nodes_nvda_balsht.json</i>, and here is the visualization of the node relation.
-<br><br>
-Visualization coming soon...
+<br>
+
+<img src=Images/nvda_balsht_sankey.png>
 
 ### Cash Flow Statement
 The definitions of nodes used for nvdae's cashflow statement sankey charts can be found in <i>nodes_nvda_cshfsmt.json</i>, and here is the visualization of the node relation.
